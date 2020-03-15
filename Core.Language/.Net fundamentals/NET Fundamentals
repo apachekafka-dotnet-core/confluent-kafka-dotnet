@@ -1,0 +1,443 @@
+.NET Fundamentals
+==================
+what is null?
+- NullObjectPattern
+
+
+
+1. The difference between an interface and an abstract class. 
+2. The difference between a class and a struct. 
+3. What the exclusive-or operator does along with most other operators. 
+4. The best way to append string data in a loop.
+5. What the various generic data containers do and when they should be used. 
+6. Processes, threads, multi-threading, and thread synchronization techniques. 
+7. The latest Microsoft serializers and how they can significantly improve performance.
+8. What does the keyword “new” do to a struct in C#?
+Destructure, Finalize and Dispose
+
+When you create a struct object using the new operator, it gets created and the appropriate constructor is called. Unlike classes, structs can be instantiated without using the new operator. If you do not use new, the fields will remain unassigned and the object cannot be used until all of the fields are initialized.
+
+What does ISerializable do and when should it be implemented? 
+ISerializable provides a way for an object to serialize itself to a binary stream of bytes and deserialize that stream of bytes back to an object. It should be used when implementing custom binary formatting.
+
+Method - Inline
+[MethodImpl(MethodImplOptions.AggressiveInlining)]
+
+
+> What is a static struct? 
+
+This is a bit of a trick question. Structs cannot be declared as static. However, a struct may contain static members like fields and methods, just like a class.
+
+A class defines a static constructor and an instance constructor. If two instances are created, how many times is each type of constructor called? The instance constructor is called twice, once when each object is created. The static constructor is called just once, before any static method or data is accessed.
+
+
+What is the yield keyword used for in C#?
+
+At first sight, yield return is a .NET sugar to return an IEnumerable.
+
+Without yield, all the items of the collection are created at once:
+
+class SomeData
+{
+    public SomeData() { }
+
+    static public IEnumerable<SomeData> CreateSomeDatas()
+    {
+        return new List<SomeData> {
+            new SomeData(), 
+            new SomeData(), 
+            new SomeData()
+        };
+    }
+}
+Same code using yield, it returns item by item:
+
+class SomeData
+{
+    public SomeData() { }
+
+    static public IEnumerable<SomeData> CreateSomeDatas()
+    {
+        yield return new SomeData();
+        yield return new SomeData();
+        yield return new SomeData();
+    }
+}
+The advantage of using yield is that if the function consuming your data simply needs the first item of the collection, the rest of the items won't be created.
+
+The yield operator allows the creation of items as it is demanded. That's a good reason to use it.
+
+
+
+8. What is the difference between upcasting an object and downcasting an object? or c# How to downcast an object
+
+	// Downcast an employee to manager.
+	mgr = (Manager)emp;
+
+	// Upcasting
+	Yes you can do that:
+	Employee emp = (Employee)mgr;
+
+	...or:
+
+	Employee emp = mgr as Employee;
+
+	The difference between those is that the first one will throw an exception if slide cannot be cast to Employee, while the second one will return null if the cast is not possible.
+
+
+8. Best way to repeat string in C#
+	
+	option#1
+	string tabs = new String('\t', n);
+	Where n is the number of times you want to repeat the string.
+
+	option#2
+	string.Concat(Enumerable.Repeat("ab", 2));
+
+	option#3
+	public static string Repeat(string value, int count)
+	{
+	    return new StringBuilder(value.Length * count).Insert(0, value, count).ToString();
+	}
+
+8. When to use an anonymous type and how to pass it to a method for processing.
+// Anonymous type object is passed in the  
+    // method which has dynamic type parameters 
+    static public void mymethod(dynamic val) 
+    { 
+        Console.WriteLine(val.language); 
+    } 
+  
+    static public void Main() 
+    { 
+        // Anonymous type object 
+        var anony_object = new {s_id = 134,  
+                                s_name = "Siya",  
+                             language = "Ruby"}; 
+        mymethod(anony_object); 
+    } 
+
+9. Delegates and the generic Func<T> and Action<T> types.
+
+Bryan, Bob. Interviewing for the .NET Stack: Vol. 1: C# and the .NET Framework . Bob Bryan. Kindle Edition. 
+
+
+
+null (C# Reference)
+The null keyword is a literal that represents a null reference, one that does not refer to any object. null is the default value of reference-type variables. Ordinary value types cannot be null, except for nullable value types
+
+It means it's pointing nowhere and the memory is eligible for deallocation by the Garbage Collector at some undefined time in the future.
+
+Nullable<T>
+The nullable type is a struct consisting of two fields: a bool and a T. When the value is null, the bool is false and the T has the default value. When the value is not null, the bool is true.
+
+There are two main benefits to using Nullable as compared to implementing the functionality yourself. There's the language support, as described in more detail in ChaosPandion's answer, and there's the fact that boxing (converting to an object) will automatically remove the nullable "wrapper", leaving either a null reference or the plain T object.z
+
+
+Operators
+=========
+??  (null-coalescing operato)
+	returns the value of its left-hand operand if it isn't null
+
+??= operators (null-coalescing assignment operator)
+	(numbers ??= new List<int>()).Add(5); // The ??= operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null.
+
+?: operator  (ternary conditional operator)
+	condition ? consequent : alternative
+
+?. or ?[] If a evaluates to null, the result of a?.x or a?[x] is null.
+
+^ Index from end operator 
+
+var lines = new List<string> { "one", "two", "three", "four" };
+string prelast = lines[^2];
+Console.WriteLine(prelast);  // output: three
+
+============================================================
+Here is a list of attributes of a partial method.
+A partial method can only be created in partial classes or partial structs.
+In order to create a partial method, it must be declared first(like an abstract method), with a signature only and no definition. After it is declared, its body can be defined in the same component or different component of the partial class/struct .
+A partial method is implicitly private. It cannot have any other access modifier.
+A partial method can only have void return type.
+
+====================================================================
+
+Named Parameters
+Ref Parameters
+Out Parameters
+Default or Optional Parameters
+Dynamic Parameters
+Value Parameters
+Param (ex: int mulval(params int[] num) )
+====================================================================
+IsNullOrEmpty
+IsNullOrWhiteSpace
+====================================================================
+var vs dynamic
+var
+	> compile time
+	> It is introduced in C# 3.0.
+	> 	var myvalue = 10; // statement 1
+		myvalue = “GeeksforGeeks”; // statement 2
+		Here the compiler will throw an error because the compiler has already decided the type of the myvalue variable using statement 1 that is an integer type. When you try to assign a string to myvalue variable, then the compiler will give an error because it violating safety rule type.
+	> It cannot be used for properties or returning values from the function. It can only used as a local variable in function.
+
+dynamic
+	> run time
+	> In C# 4.0, a new type is introduced that is known as a dynamic type. It is used to avoid the compile-time type checking. The compiler does not check the type of the dynamic type variable at compile time, instead of this, the compiler gets the type at the run time.
+	>   dynamic myvalue = 10; // statement 1
+		myvalue = “GeeksforGeeks”; // statement 2
+		Here, the compiler will not throw an error though the type of the myvalue is an integer. When you assign a string to myvalue it recreates the type of the myvalue and accepts string without any error.
+	> It can be used for properties or returning values from the function.
+
+1. Value/Ref types 
+	> The CLR stores objects in three types of storage locations -- the registers, the stack or the managed heap.
+	> ref: 
+		> Note that you can pass a value type as a reference to a method by using the ref keyword. 
+		> It is necessary the parameters should initialize before it pass to ref.
+		> It is not necessary to initialize the value of a parameter before returning to the calling method.
+		> The passing of value through ref parameter is useful when the called method also need to change the value of passed parameter.
+
+	> out
+		>It is not necessary to initialize parameters before it pass to out.
+		>It is necessary to initialize the value of a parameter before returning to the calling method.
+		>The declaring of parameter through out parameter is useful when a method return multiple values.
+	
+	> 
+
+	> Value: stack [stack frame]
+
+	> Boxing and unboxing
+
+
+2. Delegates and events
+	
+	> Delegate
+
+	A delegate in C# is similar to a function pointer in C or C++. Using a delegate allows the programmer to encapsulate a reference to a method inside a delegate object. The delegate object can then be passed to code which can call the referenced method, without having to know at compile time which method will be invoked.
+
+	There are three steps in defining and using delegates:
+
+	Declaration
+	Instantiation
+	Invocation
+
+	// Declaration
+    public delegate void SimpleDelegate();
+
+	// Instantiation
+    SimpleDelegate simpleDelegate = new SimpleDelegate(MyFunc);
+
+    //Invocation
+    simpleDelegate();
+
+    > Event
+
+    The following important conventions are used with events:
+
+	Event Handlers in the .NET Framework return void and take two parameters.
+	The first paramter is the source of the event; that is the publishing object.
+	The second parameter is an object derived from EventArgs.
+	Events are properties of the class publishing the event.
+	The keyword event controls how the event property is accessed by the subscribing classes.
+
+	> Multicast deletegate
+	
+	> Anonymous Methods
+	Define an anonymous method with the delegate keyword and a nameless function body. This code assigns an anonymous method to the delegate. The anonymous method must not have a signature. 
+
+	var method1 = delegate  
+            {  
+                Console.WriteLine("Anonymous method");  
+            };  
+
+     or
+
+    Func<int, bool> isPositive = delegate (int int32)
+    {
+        return int32 > 0;
+    };
+
+    bool result = isPositive(0);
+
+
+    > Lamda Expression
+    	Expression Lambda:It has only one expression, with no curly brace or return statement.
+    			int res = list.Find(n = > n == 0);  
+
+		Statement Lambda:It is a collection of statements.
+				int res = list.Find(n = > {
+					if (n => 1)
+						return true;
+					else
+						return false;
+				});  
+
+
+		or (with parameters)
+
+		Func<int, bool> isPositive = (int int32) =>
+	    {
+	        return int32 > 0;
+	    };
+
+	    bool result = isPositive(0);
+
+	> Local functions: function inside function
+	> Extension method : 
+		The main advantage of the extension method is to add new methods in the existing class without using inheritance.
+		You can add new methods in the existing class without modifying the source code of the existing class.
+		It can also work with sealed class.
+ 	> Func: Func<int, int, int> add = (int32A, int32B) => int32A + int32B;
+	> Predicate : Func<int, bool> isPositive = int32 => { int32.WriteLine(); return int32 > 0;};
+	> Action : Action<int> traceLine = int32 => int32.WriteLine();
+
+3. Collections 
+	IEnumerable.First(); 
+	IEnumerable.Single(); 
+
+
+5. Generics
+	
+6. Dispose Pattern
+
+	What is the use of 'using' statement in C#?
+
+	SuppressFinalize should only be called by a class that has a finalizer. It's informing the Garbage Collector (GC) that this object was cleaned up fully.
+	
+	The finalizer queue holds all objects that have a finalizer method defined. Recall that a finalizer is a means to collect unmanaged resources like handles. When the garbage collector collects garbage, it moves any objects with a finalizer into the finalizer queue. At some point later-- depending on memory pressure, GC heuristics, and the phase of the moon-- when the garbage collector decides to collect these objects, it walks down the queue and runs the finalizers.
+
+	public class MyClass : IDisposable
+	{
+	    private bool disposed = false;
+
+	    protected virtual void Dispose(bool disposing)
+	    {
+	        if (!disposed)
+	        {
+	            if (disposing)
+	            {
+	                // called via myClass.Dispose(). 
+	                // OK to use any private object references
+	            }
+	            // Release unmanaged resources.
+	            // Set large fields to null.                
+	            disposed = true;
+	        }
+	    }
+
+	    public void Dispose() // Implement IDisposable
+	    {
+	        Dispose(true);
+	        GC.SuppressFinalize(this);
+	    }
+
+	    ~MyClass() // the finalizer
+	    {
+	        Dispose(false);
+	    }
+	}	
+
+7. Attributes
+	Obsolete Attribute: The Obsolete attribute marks a program entity as one that is no longer recommended for use. Each use of an entity marked obsolete will subsequently generate a warning or an error, depending on how the attribute is configured.
+
+	Conditional Attribute: The Conditional attribute makes the execution of a method dependent on a preprocessing identifier. The Conditional attribute is an alias for ConditionalAttribute, and can be applied to a method or an attribute class.
+
+	Unsafe: the Unsafe keyword tells the compiler that this code will run in unsafe mode.
+
+	Fixed: We use fixed buffers inside an unsafe context. With a fixed buffer, you can write and read raw memory without the managed overhead. Enter the fixed keyword. When used for a block of statements, it tells the CLR that the object in question cannot be relocated
+
+8. Reflections
+
+----------------------------------------------------------------------------------------------
+1. Using default parameters with virtual methods
+
+abstract class Base
+{
+    public virtual void foo(string s = "base") { Console.WriteLine("base " + s); }
+}
+
+class Derived : Base
+{
+    public override void foo(string s = "derived") { Console.WriteLine("derived " + s); }
+}
+
+...
+
+Base b = new Derived();
+b.foo();
+
+Output:
+derived base
+
+----------------------------------------------------------------------------------------------
+
+2. foreach loops variables scope!
+
+var l = new List<Func<string>>();
+var strings = new[] { "Lorem" , "ipsum", "dolor", "sit", "amet" };
+foreach (var s in strings)
+{
+    l.Add(() => s);
+}
+
+foreach (var a in l)
+    Console.WriteLine(a());
+prints five "amet", while the following example works fine
+
+var l = new List<Func<string>>();
+var strings = new[] { "Lorem" , "ipsum", "dolor", "sit", "amet" };
+foreach (var s in strings)
+{
+    var t = s;
+    l.Add(() => t);
+}
+
+foreach (var a in l)
+    Console.WriteLine(a());
+
+----------------------------------------------------------------------------------------------
+
+3. Instantiation of the generic class for a type
+
+class SomeGeneric<T>
+{
+    public static int i = 0;
+}
+
+class Test
+{
+    public static void main(string[] args)
+    {
+        SomeGeneric<int>.i = 5;
+        SomeGeneric<string>.i = 10;
+        Console.WriteLine(SomeGeneric<int>.i);
+        Console.WriteLine(SomeGeneric<string>.i);
+        Console.WriteLine(SomeGeneric<int>.i);
+    }
+}
+This prints 5 10 5
+----------------------------------------------------------------------------------------------
+
+4. You can increment null for a nullable int without throwing an excecption and the value stays null.
+
+int? i = null;
+i++; // I would have expected an exception but runs fine and stays as null
+
+----------------------------------------------------------------------------------------------
+
+5. What is the difference between writing a LINQ query with query syntax and method syntax? LINQ query syntax is simpler, easier to understand, and looks similar to SQL. 
+
+Query Syntax Example: int[] numbers = { 5, 10, 8, 3, 6, 12};
+
+IEnumerable<int> numQuery1 = 
+   from num in numbers
+   where num % 2 == 0
+   orderby num
+   select num;
+
+ Method Syntax Example: 
+
+ IEnumerable<int> numQuery2 = numbers.Where(num => num % 2 == 0).OrderBy(n => n);
+
+5. 

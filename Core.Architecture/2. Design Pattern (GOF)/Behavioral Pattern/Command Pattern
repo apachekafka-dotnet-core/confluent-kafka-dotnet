@@ -1,0 +1,95 @@
+Command Pattern
+----------------
+
+Command Pattern talk about encapsulating all the requests coming from the invoker in Objects, pass then to the reciever and let the reciever take the actions. If I have many actions to perform, I can haVe a hierarchy of commands and handle them polymorphically.
+
+------
+calculator = new Calculator(20, 10);
+
+addCmd = new AddCommand(calculator);
+var result = addCmd.Execute();
+
+subCmd = new SubtractCommand(calculator);
+var result = subCmd.Execute();
+
+
+abstract class ACommand
+{
+    protected IReciever reciever_ = null;
+
+    public ACommand(IReciever reciever)
+    {
+        reciever_ = reciever;
+    }
+
+    public abstract int Execute();
+}
+
+class AddCommand : ACommand
+{
+    public AddCommand(IReciever reciever)
+        :base(reciever)
+    {
+
+    }
+    public override int Execute()
+    {
+        reciever_.SetAction(ACTIO_LIST.ADD);
+        return reciever_.GetResult();
+    }
+}
+
+class SubtractCommand : ACommand
+{
+    public SubtractCommand(IReciever reciever)
+        : base(reciever)
+    {
+
+    }
+    public override int Execute()
+    {
+        reciever_.SetAction(ACTIO_LIST.SUBTRACT);
+        return reciever_.GetResult();
+    }
+}
+
+
+interface IReciever
+{
+    void SetAction(ACTIO_LIST action);
+    int GetResult();
+}
+
+
+
+class Calculator : IReciever
+{
+    int x_;
+    int y_;
+
+    enum currentAction;
+
+    public Calculator(int x, int y)
+    {
+        x_ = x;
+        y_ = y;
+    }
+
+    #region IReciever Members
+
+    public void SetAction(enum action)
+    {
+        currentAction = action;
+    }
+
+    public int GetResult()
+    {
+         switch(currentAction)
+         {
+         	case add: return x+y;
+         	case substract: return x-y;
+         }
+    }
+
+    #endregion
+}

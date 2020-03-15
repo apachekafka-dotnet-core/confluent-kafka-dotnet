@@ -1,0 +1,132 @@
+What are the BeginInvoke & EndInvoke methods used for when working with delegates and when should they be used? 
+
+BeginInvoke is used to call a delegate method asynchronously on a separate thread from the thread pool. EndInvoke is used to block the calling thread when it runs out of work and needs to wait for the asynchronous delegate method to complete. BeginInvoke has the same parameters as the delegate method, plus two additional parameters. The first parameter is an AsyncCallback delegate that references a method to be called when the asynchronous call completes. The second parameter is a user-defined object that passes information into the callback method. BeginInvoke returns immediately and does not wait for the asynchronous call to complete. BeginInvoke returns an IAsyncResult, which can be used to monitor the progress of the asynchronous call. EndInvoke blocks the calling thread until it completes and returns the results of the asynchronous call as an IAsyncResult.
+
+Does C# support generic delegates? 
+
+Yes, C# supports generic delegates. For example: public delegate void Del<T>(T item);
+public static void Notify(int i) { }
+
+Del<int> NotifyCallback = Notify;
+// Old & clunkier way of instantiating a generic delegate:
+// Del<int> NotifyCallback2 = new Del<int>(Notify);
+
+
+According to the rules of method overloading, the return type is not included as part of the signature. Does that same rule apply for delegates? 
+No, the return type is considered to be part of the delegate signature. A method must have the same return type as the delegate.
+
+
+What does covariance and contravariance mean and how do they apply to non-generic delegates?
+
+
+Calling Synchronous Methods Asynchronously
+-------------------------------
+
+// Create the delegate.
+AsyncMethodCaller caller = new AsyncMethodCaller(ad.TestMethod);
+
+// Initiate the asychronous call.
+IAsyncResult result = caller.BeginInvoke(3000, 
+    out threadId, null, null);
+
+Thread.Sleep(0);
+Console.WriteLine("Main thread {0} does some work.",
+    Thread.CurrentThread.ManagedThreadId);
+
+// Call EndInvoke to wait for the asynchronous call to complete,
+// and to retrieve the results.
+string returnValue = caller.EndInvoke(out threadId, result);
+
+
+----------------------------
+
+How can you pass method as argument in another method
+
+Action<string> DispStringDel = DisplayTime;
+   string s = DateTime.Now.ToString();
+   ShowString(dispStringDel, s);
+
+private static void ShowString(Action<string> dispStringDel, string str)
+{
+	..
+   dispStringDel(str)
+}
+
+
+
+----------------------------
+
+How do you use Func<> and Action<> when designing applications?
+
+They're also handy for refactoring switch statements.
+Take the following (albeit simple) example:
+
+public void Move(int distance, Direction direction)
+{
+    switch (direction)
+    {
+        case Direction.Up :
+            Position.Y += distance;
+            break;
+        case Direction.Down:
+            Position.Y -= distance;
+            break;
+        case Direction.Left:
+            Position.X -= distance;
+            break;
+        case Direction.Right:
+            Position.X += distance;
+            break;
+    }
+}
+With an Action delegate, you can refactor it as follows:
+
+static Something()
+{
+    _directionMap = new Dictionary<Direction, Action<Position, int>>
+    {
+        { Direction.Up,    (position, distance) => position.Y +=  distance },
+        { Direction.Down,  (position, distance) => position.Y -=  distance },
+        { Direction.Left,  (position, distance) => position.X -=  distance },
+        { Direction.Right, (position, distance) => position.X +=  distance },
+    };
+}
+
+public void Move(int distance, Direction direction)
+{
+    _directionMap[direction](this.Position, distance);
+}
+
+
+
+----------------
+Func<>
+
+
+public static T Get<T>  
+    (string cacheKey, HttpContextBase context, Func<T> getItemCallback)
+            where T : class
+{
+    T item = Get<T>(cacheKey, context);
+    if (item == null) {
+        item = getItemCallback();
+        context.Cache.Insert(cacheKey, item);
+    }
+
+    return item;
+}
+
+
+What is the Predicate delegate used for? The Predicate delegate is used to find elements in the List<T> and Array classes. It is defined as: public delegate bool Predicate<in T>(T obj)
+
+This is similar to a Func<T, bool> delegate.
+
+    Predicate<string> predicate = delegate(string item)
+    {
+        return item.Length <= 4;
+    };
+
+IList<string> shortWords = ListUtil.Filter(SampleData.Words, predicate);
+ListUtil.Dump(shortWords);
+
+

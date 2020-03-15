@@ -1,0 +1,14 @@
+BDD Dicovering Bounded Context
+-----------------------------
+DDD
+- Linguistic Boundries
+- Data: flow, data, uniqnesss
+- Domain expert boundries
+- Organizational Boundries
+- Business Process Steps
+
+ToC - Theory of Constraints 
+-- Help to choose right model
+
+
+Bounded(autonomy) Context : things that change togeather for a business reasons, owns by single team.

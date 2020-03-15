@@ -1,0 +1,65 @@
+	--Best way to rethrow exception
+	catch(Exception e) 
+	{
+	   // Do stuff 
+	   throw e; 
+	}
+	The problem is that it wipes the stack trace and makes diagnosing issues much harder, cause you can not track where the exception originated.
+
+	The correct code is either the throw statement with no args:
+
+	catch(Exception)
+	{
+	    throw;
+	}
+	---------------------------------------------------------
+	--Best filter and catch exception(Exception Filters)
+
+	catch (WebException ex) when (ex.Status == WebExceptionStatus.ProtocolError)
+	{
+	   //code specifically for a WebException ProtocolError
+	}
+	catch (WebException ex) when ((ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.NotFound)
+	{
+	   //code specifically for a WebException NotFound
+	}
+	catch (Exception exception) when (ex is FormatException || ex is OverflowException)
+	{
+		//code
+	}
+
+
+	---------------------------------------------------------
+
+	--Log cotextual info in catch as best practice
+
+	try
+	{
+	   //do something
+	}
+	catch (Exception ex)
+	{
+	   //LOG IT!!!
+	   Log.Error(string.Format("Excellent description goes here about the exception. Happened for client {0}", _clientContext.ClientId), ex);
+	   throw; //can rethrow the error to allow it to bubble up, or not, and ignore it.
+	}
+
+
+-- Explain the difference between error and exception in C# ?
+-- Does finally get executed if the code throws an error?
+-- What is the difference between System exceptions and Application exceptions?
+-- What is the difference between throw and throw ex
+
+	---------------------------------------------------------
+
+------Is it possible to intercept all managed exceptions from all classes before the CLR sends the exception to the nearest exception handler for processing? If so, then how?
+
+
+Yes, it is possible to intercept all managed exceptions before they are processed by a handler. This can be done by creating an event method to intercept the exception. This event handler should be added to the FirstChanceException event defined in AppDomain.CurrentDomain. This may sometimes be desirable to centralize the logging of all managed exceptions and for cases where a large app does not always have the appropriate exception handling code. 
+
+For example: AppDomain.CurrentDomain.FirstChanceException += FirstChanceHandler;
+
+
+---------------------------------------
+
+

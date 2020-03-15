@@ -1,0 +1,44 @@
+WebAPI - Exception Handler
+--------
+
+Exception Handling in ASP.NET Web API 
+-- Level 1 - HttpResponseException
+
+	public IHttpActionResult CheckId(int id)
+	{
+	    if (id > 100)
+	    {
+	        var message = new HttpResponseMessage(HttpStatusCode.BadRequest)
+	        {
+	            Content = new StringContent("We cannot use IDs greater than 100.")
+	        };
+	        throw new HttpResponseException(message);
+	    }
+	    return Ok(id);
+	}
+
+
+
+	public HttpResponseMessage HttpError()
+	{
+	    return Request.CreateResponse(HttpStatusCode.Forbidden, "You cannot access this method at this time.");
+	}
+
+-- Level 2 - HttpResponseException
+
+
+	public class UnhandledExceptionLogger : ExceptionLogger
+	{
+	    public override void Log(ExceptionLoggerContext context)
+	    {
+	        var log = context.Exception.ToString();
+	        //Do whatever logging you need to do here.
+	    }
+	}
+
+	config.Services.Replace(typeof(IExceptionLogger), new UnhandledExceptionLogger());
+
+
+
+-- Level 3 - https://exceptionnotfound.net/the-asp-net-web-api-exception-handling-pipeline-a-guided-tour/
+config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());

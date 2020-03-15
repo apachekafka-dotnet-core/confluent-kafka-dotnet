@@ -1,0 +1,53 @@
+Builder pattern
+===============
+-----------
+public abstract class MealBuilder
+{
+    protected Meal meal = new Meal();
+
+    public Meal BuildMeal()
+    {
+        AddStarter();
+        AddMain();
+        AddDessert();
+        AddToppings();
+
+        return meal;
+    }
+
+    protected abstract void AddStarter();
+    protected abstract void AddMain();
+    protected abstract void AddDessert();
+    protected abstract void AddToppings();
+}
+----------
+public class StegosaurusMealBuilder : MealBuilder
+{
+    protected override void AddStarter()
+    {
+        this.meal.Starter = "a few green leaves";
+    }
+
+    protected override void AddMain()
+    {
+        this.meal.MainCourse = "a huge plate of ferns";
+    }
+
+    protected override void AddDessert()
+    {
+        this.meal.SetDessert("fruit and berries");
+    }
+
+    protected override void AddToppings()
+    {
+        this.meal.AddTopping("crunchy flowers");
+    }
+}
+-----
+public static void BuilderExample()
+{
+    MealBuilder builder = new StegosaurusMealBuilder();
+    Meal meal = builder.BuildMeal();
+
+    meal.ServeMeal();
+}

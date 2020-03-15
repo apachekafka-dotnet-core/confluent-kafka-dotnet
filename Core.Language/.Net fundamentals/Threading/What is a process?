@@ -1,0 +1,178 @@
+What is a process?
+
+What is the ParallelLoopState class used for? The ParallelLoopState class is primarily used to exit a loop early. The Break and Stop methods of the ParallelLoopState class can be used to exit a parallel loop early. In order to use either of these methods, an overload of Parallel.For or Parallel.ForEach that includes ParallelLoopState must be used. For example: Parallel.ForEach ("ABCDEFGHIJKLMNOPQZ", (c, loopState) =>
+{
+   // Display all characters until an 'M' is found.
+   Console.Write(c);
+   if (c == 'M')
+      loopState.Break();
+});
+
+The ParallelLoopState class also provides the following properties: IsExceptional - indicates if any thread has thrown an unhandled exception.
+
+IsStopped - indicates if any thread has called the Stop method. LowestBreakIteration - returns the lowest iteration of the loop from which Break was called. ShouldExitCurrentIteration - indicates whether a thread
+
+
+What is the WaitHandle class used for? 
+
+The WaitHandle class provides the following thread synchronization methods: 
+
+A. WaitOne - blocks the current thread until the WaitHandle object is signaled. 
+B. WaitAll - blocks the current thread until all the wait handles in an array are signaled. 
+C. WaitAny - blocks the current thread until any wait handle in an array is signaled. 
+D. SignalAndWait - signals a wait handle and then blocks on another wait handle. This class is abstract and the base class for the EventWaitHandle, Mutex, and Semaphore classes. However, many of its members are defined as static. This class should be used when the need arises to define a custom class that provides similar functionality.
+
+
+
+Wait - the calling thread suspends execution until the task completes. 
+WaitAll - waits for all of the specified Task objects in an array to complete execution before unblocking the calling thread. 
+WaitAny - waits for any task (or the first Task object) in an array to complete execution before unblocking the calling thread. 
+WhenAll - creates a task that will complete when all of the specified Task objects have completed. This method does not block. 
+WhenAny - creates a task that will complete when any (or the first Task) of the specified Task objects have completed. This method does not block.
+
+When should the keywords async and await be used and what is the key advantage this pattern offers? 
+
+The async / await pattern should be used to easily and efficiently handle code that has one or more wait states. Good examples are code that communicates with other websites, querying a remote database, and reading data from files to name a few. This pattern does not employ additional background threads, but rather frees up the calling thread to perform other work while the result is awaited. The compiler uses a state machine to keep track of the awaited entry points. Async & await should never be used with CPU intensive work, which should almost always execute the work on a thread from the thread pool via Task.Run, or use the Parallel class to break up the work so that several cores can work on the problem simultaneously. The async keyword indicates that a method may be called asynchronously, employ the await keyword to asynchronously wait for a task to finish, and also changes how the result of the method is handled. The await keyword indicates that the code will wait for the results of an asynchronous method and frees up the thread to do other work while waiting. The main advantage of using the async and await pattern is that it simplifies the code when working with wait states. In the past, a background thread had to be used to perform long-running work like communicating with a website. If this work were done on the user interface thread instead, then it would block and the app would become unresponsive. On the server side for apps like ASP.NET, the async / await pattern is even more useful because it provides a way to free up a worker thread while waiting for I/O completion. Threads take up significant resources. In the past, a thread would have to wait for I/O to complete. So, using the async / await pattern on the server side provides a way to more efficiently manage the thread pool to achieve maximum website performance.
+
+
+
+Recognize CPU-Bound and I/O-Bound Work
+
+The first two examples of this guide showed how you can use async and await for I/O-bound and CPU-bound work. It's key that you can identify when a job you need to do is I/O-bound or CPU-bound, because it can greatly affect the performance of your code and could potentially lead to misusing certain constructs.
+Here are two questions you should ask before you write any code:
+Will your code be "waiting" for something, such as data from a database?
+If your answer is "yes", then your work is I/O-bound.
+Will your code be performing a very expensive computation?
+If you answered "yes", then your work is CPU-bound.
+If the work you have is I/O-bound, use async and await without Task.Run. You should not use the Task Parallel Library. The reason for this is outlined in the Async in Depth article.
+If the work you have is CPU-bound and you care about responsiveness, use async and await but spawn the work off on another thread with Task.Run. If the work is appropriate for concurrency and parallelism, you should also consider using the Task Parallel Library.
+
+
+
+state machine
+What does the “async” keyword do when applied to a method?
+
+When you mark a method with the “async” keyword, you’re really telling the compiler two things:
+
+You’re telling the compiler that you want to be able to use the “await” keyword inside the method. In doing so, you’re telling the compiler to compile the method using a state machine, such that the method will be able to suspend and then resume asynchronously at await points.
+
+You’re telling the compiler to “lift” the result of the method or any exceptions that may occur into the return type. For a method that returns Task or Task<TResult>, this means that any returned value or exception that goes unhandled within the method is stored into the result task. For a method that returns void, this means that any exceptions are propagated to the caller’s context via whatever “SynchronizationContext” was current at the time of the method’s initial invocation.
+
+
+State Machine
+https://www.nerdlife.me/understanding-how-async-state-machine-works/
+
+
+more: 
+
+
+What are awaitables? What are awaiters?
+
+While Task and Task<TResult> are two types very commonly awaited, they’re not the only ones that may be awaited.
+
+An “awaitable” is any type that exposes a GetAwaiter method which returns a valid “awaiter”. This GetAwaiter method may be an instance method (as it is in the case of Task and Task<TResult>), or it may be an extension method.
+
+An “awaiter” is any type returned from an awaitable’s GetAwaiter method and that conforms to a particular pattern. The awaiter must implement the System.Runtime.CompilerServices.INotifyCompletion interface, and optionally may implement the System.Runtime.CompilerServices.ICriticalNotifyCompletion interface. In addition to providing an implementation of the OnCompleted method that comes from INotifyCompletion (and optionally the UnsafeOnCompleted method that comes from ICriticalNotifyCompletion), an awaiter must also provide an IsCompleted Boolean property, as well as a parameterless GetResult method. GetResult returns void if the awaitable represents a void-returning operation, or it returns a TResult if the awaitable represents a TResult-returning operation.
+
+https://www.nerdlife.me/CSharp-Tips-That-You-May-Not-Know/
+
+
+If I'm not totally wrong, ConfigureAwait(false); only means that the code which runs after the code you are awaiting, is not required to use the SynchronizationContext from before the await.
+
+What is the difference between waiting for a task to complete with task.Result and await task? 
+
+Both task.Result and await task will wait for the result of a task before the code continues. The major difference is that task.Result blocks the calling thread while waiting for the result. The calling thread is not blocked with await task. Instead, the thread is released up the async call chain so that it can do other work. A possible problem with using task.Result or task.Wait is that it can lead to a deadlock condition. In general, most of the time it is a mistake to use task.Result or task.Wait in an async method.
+
+
+Starting with C# 7, ValueTask<T> may now also be returned from an async method. ValueTask<T> is a struct which is allocated on the stack instead of the heap. In a tight loop, this not only saves allocating an object on the heap but also reduces pressure from the garbage collector.
+
+
+
+https://www.dotnetcurry.com/csharp/1307/async-await-asynchronous-programming-examples
+
+
+
+What is the lock statement used for? 
+
+The lock statement uses a critical section internally to single thread the code. One advantage of the lock statement is that it executes within a try/catch block. If an unhandled exception is thrown inside the lock block, then it catches it and releases the lock before rethrowing the exception so that deadlocks can be avoided. One drawback of the lock statement is that it can't be used to single thread the code after the method that initiated the lock returns - because the lock statement releases the lock when leaving the scope of the lock block.
+
+
+What is the Monitor class used for? 
+
+Like the lock statement, the Monitor class uses a critical section to single thread the code. The advantage of using the Monitor class is that it can hold a lock after the method that initiated the lock has returned. It can also release a lock early when a method inside the method that locked the resource determines the lock is no longer required, which is something the lock statement cannot do. The recommended object to lock on is a private object. If all instances of a class will use that lock object, then it should be declared as static. The Monitor class also provides static Wait, Pulse, and PulseAll methods that can be used for thread synchronization. These methods are more efficient than using Wait handles, but cannot be used for synchronizing threads in different processes.
+
+What is a Mutex object and when should it be used over the Lock statement and Monitor class? 
+
+A Mutex object is used to provide exclusive access to a resource. Like the lock statement and Monitor class, a Mutex object single threads the code and should be used when: A. Synchronizing threads in different processes. B. When working with multiple waits. C. When a Mutex object needs to be passed to other application domains so that access to a shared resource can be synchronized. A Mutex object is considerably more expensive to use than a critical section since it does a kernel context thread switch. So, the Mutex object should only be used when necessary.
+
+What types of mutexes can be created in .NET? 
+
+There are two types of mutexes - local mutexes and named system mutexes. If a Mutex object is created using a constructor that accepts a name, it is associated with an operating-system object of that name. Named system mutexes are visible throughout the OS and can be used to synchronize the activities of processes. Multiple Mutex objects can be created to represent the same named system mutex, and the OpenExisting method can be used to open an existing named system mutex. A local mutex exists only within a single process. It can only be used by threads within that process.
+
+What types of mutexes can be created in .NET? There are two types of mutexes - local mutexes and named system mutexes. If a Mutex object is created using a constructor that accepts a name, it is associated with an operating-system object of that name. Named system mutexes are visible throughout the OS and can be used to synchronize the activities of processes. Multiple Mutex objects can be created to represent the same named system mutex, and the OpenExisting method can be used to open an existing named system mutex. A local mutex exists only within a single process. It can only
+
+
+What are the Semaphore and SemaphoreSlim classes used for? Both the Semaphore class and SemaphoreSlim class limit the number of threads that can access a resource or pool of resources concurrently. They are typically used when more than one thread should run concurrently and there is a requirement to also limit the number of threads. The Semaphore class is a thin wrapper around the Win32 semaphore object. The differences between the Semaphore class and the SemaphoreSlim class is that the Semaphore class can support both local and system wide semaphores, much like the Mutex class. While the SemaphoreSlim class does not support system wide semaphores, it is considerably faster and more efficient for managing threads within a single process.
+
+Sample:-
+
+class TheClub      // No door lists!
+{
+  static SemaphoreSlim _sem = new SemaphoreSlim (3);    // Capacity of 3
+ 
+  static void Main()
+  {
+    for (int i = 1; i <= 5; i++) new Thread (Enter).Start (i);
+  }
+ 
+  static void Enter (object id)
+  {
+    Console.WriteLine (id + " wants to enter");
+    _sem.Wait();
+    Console.WriteLine (id + " is in!");           // Only three threads
+    Thread.Sleep (1000 * (int) id);               // can be here at
+    Console.WriteLine (id + " is leaving");       // a time.
+    _sem.Release();
+  }
+}
+
+
+What is the Interlocked class used for? 
+
+The Interlocked class provides methods to safely update a variable as an atomic operation when more than one thread may be updating that same variable. The methods provided are Add, CompareExchange, Decrement, Exchange, Increment, MemoryBarrier, and Read. The Add, Decrement, and Increment methods only supports 32 & 64 bit-ints. In addition to the 32 & 64 bit-ints, the CompareExchange and Exchange methods also support single & double floating point values, IntPtr, Object, and a generic version as well. The Interlocked class is much more efficient than the lock statement. It should be used when the best performance possible is desired.
+
+
+What is the ReaderWriterLockSlim class used for? 
+
+The ReaderWriterLockSlim class provides a way to allow multiple reader threads and only one writer thread. It should be used when many readers need access and updates are infrequent. This class replaces the ReaderWriterLock class, which is less efficient and now deprecated.
+
+
+What is the Barrier class used for? 
+
+The Barrier class is used to synchronize two or more threads to wait until all participating threads have completed their work for a given phase. The Barrier class constructor provides an overload that uses a delegate for the 2nd parameter that can be called after the last participating thread has completed its work. The SignalAndWait method is used to synchronize the threads. All threads will stop at this point until the last thread calls it. After this, the delegate defined in the constructor (if any) is called, after which all threads are then unblocked. This primitive is similar in concept to the WaitHandle.WaitAll method.
+
+What is the AutoResetEvent class used for? 
+
+The AutoResetEvent class provides a way to single thread the code when more than one thread is waiting to be processed. Like a turnstile, the Set method is used by the receiving thread to notify an application thread there is work to be done, and will wake up just one thread. Any other threads waiting will still block, as will the next call to WaitOne. The Reset method can be used to cause all application threads to block. This class can be used for both local threads of a process as well as a system wide named synchronization event that can be used to synchronize threads from different processes.
+
+What is the ManualResetEvent class used for and how does it differ from the AutoResetEvent class? 
+
+The ManualResetEvent class is somewhat similar in functionality to the AutoResetEvent class in that threads are waiting to be released to perform some kind of work. But, instead of letting just one thread through, the ManualResetEvent class lets all waiting threads through when it is signaled. The other major difference is that the ManualResetEvent class is left open in the signaled state when the Set method is called by the receiving thread. To block the application threads again, the Reset method must be called. This class can be used for both local threads of a process as well as a system wide named synchronization event that can be used to synchronize threads from different processes.
+
+What is the difference between the ManualResetEvent class and the ManualResetEventSlim class? 
+
+The ManualResetEventSlim class provides very similar functionality as the ManualResetEvent class. It does not offer a system wide named synchronization event that can be used to synchronize threads from different processes. But, it is typically up to 50 times more efficient when wait times are short due to its implementation of a spinning lock. It also provides a way to cancel a wait with a cancellation token.
+
+
+What is the EventWaitHandle class used for? 
+
+This class provides thread synchronization functions. It is the base class for the AutoResetEvent and ManualResetEvent classes and provides functionality similar to those classes. It also offers the capability to use a system wide name so that threads between two different processes can be synchronized. Like the ManualResetEvent class, this class offers an option to unblock all waiting threads when signaled with the Set method. The object remains signaled until it is manually reset to block. The other option is the automatic reset, which is what the AutoResetEvent class uses.
+
+What is the CountdownEvent class used for? 
+
+The CountdownEvent class provides a way for one or more threads to wait until one or more worker threads have each signaled they have completed a task. It is somewhat similar in functionality to the Barrier class, but is more efficient. The number of signals to wait is specified in the CountdownEvent constructor. When a thread calls the Wait method, the thread will block until the Signal method has been called the number of times specified in the constructor call. After this threshold is reached, all threads waiting will then be released. This class can also be thought of as a reverse semaphore.
+
+
+What are the ways to single-thread the code within a method? The Interlocked class, lock statement, and monitor class may be used to single thread the code within a process. To single thread the code between processes, the Mutex, Semaphore, AutoResetEvent, and ManualResetEvent classes may be used.
+
+

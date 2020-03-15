@@ -1,0 +1,18 @@
+https://docs.microsoft.com/en-gb/visualstudio/code-quality/ca1821?view=vs-2019
+------------------------------------------------------------------------------
+
+Do Not Set Variable Types to Their Default State
+
+The default value for int is 0 and the default value for Person, a reference type, is null. In most cases, there is no reason to set it in code since it can create more computer instructions therefore affecting performance. The only time variables like this should be set is if you want the default state to be different, otherwise, don’t set it. But there can be cases where you will need to initialize a variable depending on how that variable is used in a method or is passed back in a function. In these cases, if you don’t initialize the variable, you will get a build error. Only in these cases is it ok to initialize variables as shown above.
+
+
+Catching Exceptions
+
+The newer and easier way of trapping exceptions is by using the When() clause like this:
+
+Slight performance gain
+
+
+Do Not Ignore Method Results
+It’s always a good idea to trap any results from calling a method for lots of reasons. Microsoft states the reasons are: Unnecessary object creation and the associated garbage collection of the unused object degrade performance.
+

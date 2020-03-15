@@ -1,0 +1,136 @@
+Single-responsiblity principle.
+-------------------------------
+S - Single-responsiblity principle.=- A class should have only one reason to be changed.
+
+
+-------- Problem --------
+public class CsvFileProcessor
+{
+    public void Process(string filename)
+    {
+        var csvData = ReadCsv(filename);
+        var parsedData = ParseCsv(csvData);
+        StoreCsvData(parsedData);
+    }
+ 
+    public string ReadCsv(string filename)
+    {
+        TextReader tr = new StreamReader(filename);
+        tr.ReadToEnd();
+        tr.Close();
+        return tr.ToString();
+    }
+ 
+    public string[] ParseCsv(string csvData)
+    {
+        return csvData.ToString().Split(new string[] { @"\r\l" }, StringSplitOptions.RemoveEmptyEntries);
+    }
+ 
+    public void StoreCsvData(string[] csvData)
+    {
+        var conn = new SqlConnection("server=(local);integrated security=sspi;database=SRP");
+        conn.Open();
+        foreach (string line in csvData)
+        {
+            string[] columns = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+            var command = conn.CreateCommand();
+            command.CommandText = "INSERT INTO People (FirstName, LastName, Email) VALUES (@FirstName, @LastName, @Email)";
+            command.Parameters.AddWithValue("@FirstName", columns[0]);
+            command.Parameters.AddWithValue("@LastName", columns[1]);
+            command.Parameters.AddWithValue("@Email", columns[2]);
+            command.ExecuteNonQuery();
+        }
+        conn.Close();
+    }
+}
+
+
+--- Solution -----
+
+public interface IContactDataProvider
+{
+    string Read();
+}
+public interface IContactParser
+{
+    IList<ContactDTO> Parse(string contactList);
+}
+public interface IContactWriter
+{
+    void Write(IList<ContactDTO> contactData);
+}
+public class ContactProcessor
+{
+    public void Process(IContactDataProvider cdp, IContactParser cp, IContactWriter cw)
+    {
+        var providedData = cdp.Read();
+        var parsedData = cp.Parse(providedData);
+        cw.Write(parsedData);
+    }
+}
+public class CSVContactDataProvider : IContactDataProvider
+{
+    private readonly string _filename;
+ 
+    public CSVContactDataProvider(string filename)
+    {
+        _filename = filename;
+    }
+     
+    public string Read()
+    {
+        TextReader tr = new StreamReader(_filename);
+        tr.ReadToEnd();
+        tr.Close();
+        return tr.ToString();
+    }
+}
+ 
+public class CSVContactParser : IContactParser
+{
+    public IList<ContactDTO> Parse(string csvData)
+    {
+        IList<ContactDTO> contacts = new List<ContactDTO>();
+        string[] lines = csvData.Split(new string[] { @"\r\l" }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (string line in lines)
+        {
+            string[] columns = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+            var contact = new ContactDTO
+            {
+                FirstName = columns[0],
+                LastName = columns[1],
+                Email = columns[2]
+            };
+            contacts.Add(contact);
+        }
+ 
+        return contacts;
+    }
+}
+ 
+public class ADOContactWriter : IContactWriter
+{
+    public void Write(IList<ContactDTO> contacts)
+    {
+        var conn = new SqlConnection("server=(local);integrated security=sspi;database=SRP");
+        conn.Open();
+        foreach (var contact in contacts)
+        {
+            var command = conn.CreateCommand();
+            command.CommandText = "INSERT INTO People (FirstName, LastName, Email) VALUES (@FirstName, @LastName, @Email)";
+            command.Parameters.AddWithValue("@FirstName", contact.FirstName);
+            command.Parameters.AddWithValue("@LastName", contact.LastName);
+            command.Parameters.AddWithValue("@Email", contact.Email);
+            command.ExecuteNonQuery();
+        }
+        conn.Close();
+ 
+    }
+}
+ 
+public class ContactDTO
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
+}

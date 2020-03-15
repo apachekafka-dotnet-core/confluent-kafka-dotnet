@@ -1,0 +1,5 @@
+(CQRS)
+
+What is Command Query Responsibility Segregation (CQRS) design pattern? Command Query Responsibility Segregation (CQRS) is a design pattern for storing and querying information. In this pattern, storing of information can be done in a system separate from the system used for querying the information. It can help us in scaling a system and in providing better performance for both reads and writes. In this pattern, Commands are the requests to modify data in the system. Once commands are validated, data is updated.
+
+Query requests can work on updated data-set. Query requests provide results to clients. Command and Query logic can be implemented in different services that can live on different servers. In case there is high load on Query service, then you just scale the Query service. Also you can support multiple formats for the response from a Query service to satisfy requirements of multiple clients.

@@ -1,0 +1,10 @@
+ASP.NET Core
+-----------
+
+Kestrel was written from scracth for ASP.NET Core, uses libuv, the asynchronous C library used by NodeJS
+
+Kestrel is intended to sit behind http server
+
+
+
+

@@ -1,0 +1,52 @@
+Attribute
+----------
+
+
+[DefaultValue(false)]
+public bool MyProperty
+{
+    get
+    {
+        return _myVal;
+    }
+    set
+    {
+        _myVal = value;
+    }
+}
+
+
+2. [DebuggerDisplay] can be really helpful to quickly see customized output of a Type when you mouse over the instance of the Type during debugging. example:
+
+[DebuggerDisplay("FirstName={FirstName}, LastName={LastName}")]
+class Customer
+{
+    public string FirstName;
+    public string LastName;
+}
+
+3. FlagsAttribute on an Enum
+[Flags] 
+enum SandwichStuff
+{
+   Cheese = 1,
+   Pickles = 2,
+   Chips = 4,
+   Ham = 8,
+   Eggs = 16,
+   PeanutButter = 32,
+   Jam = 64
+};
+
+public Sandwich MakeSandwich(SandwichStuff stuff)
+{
+   Console.WriteLine(stuff.ToString());
+   // ...
+}
+
+// ...
+
+MakeSandwich(SandwichStuff.Cheese 
+   | SandwichStuff.Ham 
+   | SandwichStuff.PeanutButter);
+// produces console output: "Cheese, Ham, PeanutButter"

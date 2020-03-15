@@ -1,0 +1,389 @@
+Pattern Categlog & Categories
+
+Creational Patterns (creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation)
+
+  Abstract Factory	Creates an instance of several families of classes
+  Builder			Separates object construction from its representation
+  Factory Method	Creates an instance of several derived classes
+  Prototype			A fully initialized instance to be copied or cloned
+  Singleton			A class of which only a single instance can exist
+
+Structural Patterns (tructural design patterns are patterns that describe how objects and classes can be combined and form a large structure)
+  Adapter			Match interfaces of different classes
+  Bridge			Separates an object’s interface from its implementation
+  Composite			A tree structure of simple and composite objects
+  Decorator			Add responsibilities to objects dynamically
+  Facade			A single class that represents an entire subsystem
+  Flyweight			A fine-grained instance used for efficient sharing
+  Proxy				An object representing another object
+
+Behavioral Patterns (Behavioral Design patterns are the patterns for . Net in which there is a way through which we can pass the request between the chain of objects, or we can say that it defines the manner to communicate between classes and object)
+
+  Chain of Resp.	A way of passing a request between a chain of objects
+  Command			Encapsulate a command request as an object
+  Interpreter		A way to include language elements in a program
+  Iterator			Sequentially access the elements of a collection
+  Mediator			Defines simplified communication between classes
+  Memento			Capture and restore an object's internal state
+  Observer			A way of notifying change to a number of classes
+  State				Alter an object's behavior when its state changes
+  Strategy			Encapsulates an algorithm inside a class
+  Template Method	Defer the exact steps of an algorithm to a subclass
+  Visitor			Defines a new operation to a class without change
+
+
+Scenario based pattern evalution
+
+> Mediator / Behavioral Patterns
+Mediator is a behavioral design pattern that reduces coupling between components of a program by making them communicate indirectly, through a special mediator object.
+
+public abstract class Colleague
+{
+	 protected IMediator _mediator;
+
+	 public Colleague(IMediator mediator)
+	 {
+	 	_mediator = mediator;
+	 }
+}
+
+public class ConcreteColleagueA : Colleague
+{
+	 public ConcreteColleagueA(IMediator mediator) : base(mediator) { }
+
+	 public void Send(string msg)
+	 {
+		 Console.WriteLine("A send message:" + msg);
+		 _mediator.SendMessage(this, msg);
+	 }
+
+	 public void Receive(string msg)
+	 {
+	 	Console.WriteLine("A receive message:" + msg);
+	 }
+}
+
+public class ConcreteColleagueB : Colleague
+{
+	 public ConcreteColleagueB(IMediator mediator) : base(mediator) { }
+
+	 public void Send(string msg)
+	 {
+		 Console.WriteLine("B send message:" + msg);
+		 _mediator.SendMessage(this, msg);
+	 }
+
+	 public void Receive(string msg)
+	 {
+	 	Console.WriteLine("B receive message:" + msg);
+	 }
+}
+
+public interface IMediator
+{
+ 	void SendMessage(Colleague caller, string msg);
+}
+
+public class ConcreteMediator : IMediator
+{
+	 public ConcreteColleagueA Colleague1 { get; set; }
+
+	 public ConcreteColleagueB Colleague2 { get; set; }
+
+	 public void SendMessage(Colleague caller, string msg)
+	 {
+		 if (caller == Colleague1)
+		 	Colleague2.Receive(msg);
+		 else
+		 	Colleague1.Receive(msg);
+	 }
+}
+
+
+> Proxy / Structural Patterns
+
+The proxy design pattern is used to provide a surrogate object, which references to other objects.
+The proxy pattern involves a class, called proxy class, which represents the functionality of another class.
+
+
+public interface Subject
+{
+ 	void PerformAction();
+}
+
+public class RealSubject : Subject
+{
+	 public void PerformAction()
+	 {
+	 	Console.WriteLine("RealSubject action performed.");
+	 }
+}
+
+public class Proxy : Subject
+{
+	 private RealSubject _realSubject;
+
+	 public void PerformAction()
+	 {
+		 if (_realSubject == null)
+		 _realSubject = new RealSubject();
+
+		 _realSubject.PerformAction();
+	 }
+}
+
+> Factory Method / Abstract Factory
+=====================================
+Factory Method: Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+Example:-
+public abstract class Creator {
+    public void anOperation() {
+        Product p = factoryMethod();
+        p.whatever();
+    }
+
+    protected abstract Product factoryMethod();
+}
+
+public class ConcreteCreator extends Creator {
+    @Override
+    protected Product factoryMethod() {
+        return new ConcreteProduct();
+    }
+}
+
+
+Abstract Factory: Abstract Factory provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+
+public class BroadbandFactory : IFactory {
+    public static Broadband CreateStandardInstance() {
+        // broadband product creation logic goes here
+    }
+}
+
+public class PhonelineFactory : IFactory {
+    public static Phoneline CreateStandardInstance() {
+        // phoneline product creation logic goes here
+    }
+}
+
+public class MobileFactory : IFactory {
+    public static Mobile CreateStandardInstance() {
+        // mobile product creation logic goes here
+    }
+}
+
+public class BundleFactory : IAbstractFactory {
+
+    public static Bundle CreateBundle() {
+        broadband = BroadbandFactory.CreateStandardInstance();
+        phoneline = PhonelineFactory.CreateStandardInstance();
+        mobile = MobileFactory.CreateStandardInstance();
+
+        applySomeDiscountOrWhatever(broadband, phoneline, mobile);
+    }
+
+    private static void applySomeDiscountOrWhatever(Broadband bb, Phoneline pl, Mobile m) {
+        // some logic here
+        // maybe manange some variables and invoke some other methods/services/etc.
+    }
+}
+
+
+-----
+> Strategy
+=============================
+Strategy: provide users a way to change the behavior of a class without extending it
+
+ 	public interface IStrategy
+    {
+        object DoAlgorithm(object data);
+    }
+
+    // Concrete Strategies implement the algorithm while following the base
+    // Strategy interface. The interface makes them interchangeable in the
+    // Context.
+    class ConcreteStrategyA : IStrategy
+    {
+        public object DoAlgorithm(object data)
+        {
+        ....
+        }
+    }
+
+    class ConcreteStrategyB : IStrategy
+    {
+        public object DoAlgorithm(object data)
+        {
+        .....
+        }
+    }
+
+    class Context
+    {
+        // The Context maintains a reference to one of the Strategy objects. The
+        // Context does not know the concrete class of a strategy. It should
+        // work with all strategies via the Strategy interface.
+        private IStrategy _strategy;
+
+        public Context()
+        { }
+
+        // Usually, the Context accepts a strategy through the constructor, but
+        // also provides a setter to change it at runtime.
+        public Context(IStrategy strategy)
+        {
+            this._strategy = strategy;
+        }
+
+        // Usually, the Context allows replacing a Strategy object at runtime.
+        public void SetStrategy(IStrategy strategy)
+        {
+            this._strategy = strategy;
+        }
+
+        // The Context delegates some work to the Strategy object instead of
+        // implementing multiple versions of the algorithm on its own.
+        public void DoSomeBusinessLogic()
+        {
+		.....
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var context = new Context();
+
+            Console.WriteLine("Client: Strategy is set to normal sorting.");
+            context.SetStrategy(new ConcreteStrategyA());
+            context.DoSomeBusinessLogic();
+            
+            Console.WriteLine();
+            
+            Console.WriteLine("Client: Strategy is set to reverse sorting.");
+            context.SetStrategy(new ConcreteStrategyB());
+            context.DoSomeBusinessLogic();
+        }
+    }
+
+Visitor Pattern  / Behavioral Patterns
+======================================
+Visitor pattern separates the non-related behaviors from the object and put them into a separate object. Visitor pattern creates a separate object for each new functionality.
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            List<IStore> store = new List<IStore>();
+            store.Add(new Car() { CarName = "A1", Price = 200M, CarType = "Mercedes" });
+            store.Add(new Car() { CarName = "A2", Price = 100M, CarType = "Normal" });
+ 
+            store.Add(new Bike() { BikeName = "B1", Price = 50M, BikeType = "Bullet" });
+            store.Add(new Bike() { BikeName = "B2", Price = 30M, BikeType = "Normal" });
+ 
+            //Show price of each item
+            PriceVisitor priceVisitor = new PriceVisitor();
+            foreach (var element in store)
+            {
+                element.Visit(priceVisitor);
+            }
+ 
+            //Show weight of each item
+            WeightVisitor weightVisitor = new WeightVisitor();
+            foreach (var element in store)
+            {
+                element.Visit(weightVisitor);
+            }
+ 
+            Console.ReadLine();
+        }
+    }
+ 
+    public interface IStore
+    {
+        void Visit(IVisitor visitor);
+    }
+ 
+    public interface IVisitor
+    {
+        void Accept(Car car);
+        void Accept(Bike bike);
+    }
+ 
+    public class Car : IStore
+    {
+        public string CarName { get; set; }
+        public decimal Price { get; set; }
+        public string CarType { get; set; }
+ 
+        public void Visit(IVisitor visitor)
+        {
+            visitor.Accept(this);
+        }
+    }
+ 
+    public class Bike : IStore
+    {
+        public string BikeName { get; set; }
+        public decimal Price { get; set; }
+        public string BikeType { get; set; }
+ 
+        public void Visit(IVisitor visitor)
+        {
+            visitor.Accept(this);
+        }
+    }
+ 
+    public class PriceVisitor : IVisitor
+    {
+        private const int CAR_DISCOUNT = 5;
+        private const int BIKE_DISCOUNT = 2;
+ 
+        public void Accept(Car car)
+        {
+            decimal carPriceAfterDicount = car.Price - ((car.Price / 100) * CAR_DISCOUNT);
+            Console.WriteLine("Car {0} price: {1}", car.CarName, carPriceAfterDicount);
+        }
+ 
+        public void Accept(Bike bike)
+        {
+            decimal bikePriceAfterDicount = bike.Price - ((bike.Price / 100) * BIKE_DISCOUNT);
+            Console.WriteLine("Bike {0} price: {1}", bike.BikeName, bikePriceAfterDicount);
+        }
+    }
+ 
+    public class WeightVisitor : IVisitor
+    {
+        public void Accept(Car car)
+        {
+            switch (car.CarType)
+            {
+                case "Mercedes":
+                    Console.WriteLine("Car {0} weight: {1} KG", car.CarName, 1750);
+                    break;
+                case "Normal":
+                    Console.WriteLine("Car {0} weight: {1} KG", car.CarName, 750);
+                    break;
+            }
+        }
+ 
+        public void Accept(Bike bike)
+        {
+            switch (bike.BikeType)
+            {
+                case "Bullet":
+                    Console.WriteLine("Bike {0} weight: {1} KG", bike.BikeName, 300);
+                    break;
+                case "Normal":
+                    Console.WriteLine("Bike {0} weight: {1} KG", bike.BikeName, 100);
+                    break;
+            }
+        }
+    }
+
+
+Proxy
+=====

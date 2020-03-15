@@ -1,0 +1,7 @@
+1. DataSets
+2. DataReaders
+3. LINQ {How LINQ works, difference between IEnumerable and IQueryable}
+-----for ORM----
+1. O/R Impedance
+2. Mapping (Emp/Manager relations to inheritance/association)
+3. LINQ

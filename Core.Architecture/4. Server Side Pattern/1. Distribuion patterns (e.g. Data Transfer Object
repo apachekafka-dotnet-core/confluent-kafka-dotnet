@@ -1,0 +1,4 @@
+1. Distribuion patterns (e.g. Data Transfer Object, Remote Facade)
+2. Session state patterns (e.g. Server, Database)
+3. Message Routing Patterns (e.g. Pipes/filters) 
+

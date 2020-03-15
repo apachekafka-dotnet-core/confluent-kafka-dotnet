@@ -1,0 +1,25 @@
+> Build engine (Teamcity/Jenkins etc)
+> Build tool (Nant/Msbuild etc)
+	What is MSBuild
+
+> Code Quality Tools (Fxcop/Stylecop etc)
+> What do you do when a build fails?
+> Integration Testing	
+
+what is differnce between CI and CD?
+
+What is the difference between Mock or Stub for Microservice tests? Stub: A Stub is simply a dummy object that helps in running the test. It provides fixed behavior under certain conditions. That behavior can be hard coded into it. Any other behavior of stub is never tested. And this hard coded behavior helps in actual test to proceed. E.g. For an empty Stack you can create a stub that just returns true for empty() method. It does not care whether there is any element in stack or not. Mock: A Mock is a dummy object in which certain properties are set initially. The behavior of this object depends on these properties. The object’s behavior can be tested along with these properties. E.g. For a Customer object, you can mock it by setting name and age. You can set age as 15 and then test for isAdult() method that will return true for age greater than 18. Now your Mock Customer object is working for this. A stub does not cause a test to fail. For service level tests, you can use both Mock and Stub for testing the functionality.
+
+How can we separate Deployment from Release of Microservices?
+
+Deployment and Release are two separate events for Microservices. One way of doing this is blue/green deployment. In this case, there are two versions of a Microservice deployed at a time. But only one version is taking real requests. Once the other version is tested to our satisfaction, we can switch the version. We can run a smoke-test suite to verify that the functionality is running correctly in the newly deployed version. Based on the results of smoke-test, newer version can be released to become the live version. In this way, we can separate deployment from release of a Microservice.
+
+What is Canary Releasing? Canary Releasing is a technique to direct a small set of users to newly deployed version, so that we can verify that release is working as expected. Once we are satisfied, then we can gradually increase traffic to new version. Once all the clients are on new version, the old version is phased out. In Canary Releasing two versions coexist for a longer period of time than blue/green deployment.
+
+What is the difference between Mean Time to Repair (MTTR) and Mean Time between failures (MTBF)? If a release goes bad, we need to repair it. The average time taken to repair a release is Mean Time To Repair (MTTR). On the other hand, we can choose an approach in which we just discard the new release and replace it with the old release. So there will be a time period in which new release failed. But the old one quickly replaced it. This is known as Mean Time Between Failures (MTBF).
+
+How can we do cross-functional testing? Cross-functional testing is verification of non-functional requirements of a system. These requirements are such characteristics of a system that cannot be implemented like a normal feature. E.g. Number of concurrent users supported by system, usability of site etc. Cross-functional testing is related to cross-functional requirements. Often business users do not specify cross-functional requirements in the beginning. But they expect these when software is complete and deployed to production. It is always a good idea to ask business users about such cross-functional expectations in initial phase of the project itself.
+
+What is Semantic Monitoring?
+
+At times, after the deployment we want to make sure that complete end-to-end system is working fine. To achieve this we can create a Synthetic Transaction that is hidden from outside world, but it can test actual functionality of the system. This synthetic transaction moves across multiple services, and each service processes it. Finally, we get complete end result for this Synthetic Transaction. Based on the end result received after processing of this transaction we can confirm that system is working as expected. This technique of verifying semantic correctness of the system is known as Sematic Monitoring.

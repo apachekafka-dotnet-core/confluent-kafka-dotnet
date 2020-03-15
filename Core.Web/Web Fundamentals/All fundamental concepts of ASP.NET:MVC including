@@ -1,0 +1,108 @@
+All fundamental concepts of ASP.NET/MVC including
+
+1. Page/Request lifecycle
+2. Routing 
+3. MVC, View Engine, Controllers 
+4. Models and Databinding
+5. Validation
+
+TagHelpers
+
+HTTP/2 support
+HTTP/2 is supported with ASP.NET Core in the following deployment scenarios:
+
+Kestrel
+Operating system
+Windows Server 2016/Windows 10 or later†
+Linux with OpenSSL 1.0.2 or later (for example, Ubuntu 16.04 or later)
+HTTP/2 will be supported on macOS in a future release.
+Target framework: .NET Core 2.2 or later
+
+HTTP.sys
+Windows Server 2016/Windows 10 or later
+Target framework: Not applicable to HTTP.sys deployments.
+
+IIS (in-process)
+Windows Server 2016/Windows 10 or later; IIS 10 or later
+Target framework: .NET Core 2.2 or later
+
+IIS (out-of-process)
+Windows Server 2016/Windows 10 or later; IIS 10 or later
+Public-facing edge server connections use HTTP/2, but the reverse proxy connection to Kestrel uses HTTP/1.1.
+Target framework: Not applicable to IIS out-of-process deployments.
+
+
+What is a reverse proxy server used for?
+A reverse proxy is a server that sits in front of web servers and forwards client (e.g. web browser) requests to those web servers. Reverse proxies are typically implemented to help increase security, performance, and reliability.
+
+
+Load Balancing v/s Reverse Proxy
+
+A load balancer distributes incoming client requests among a group of servers, in each case returning the response from the selected server to the appropriate client.
+
+A reverse proxy accepts a request from a client, forwards it to a server that can fulfill it, and returns the server’s response to the client.
+Increased security
+Increased scalability and flexibility
+Compression
+SSL termination 
+Caching 
+
+
+http.sys
+
+Windows Authentication
+Response caching
+WebSockets
+Direct file transmission
+Port sharing
+HTTPS with SNI (Server Name Indication)
+HTTP/2 over TLS
+It supports Windows 7 and Windows Server 2008 R2 and later
+
+
+
+RESTful
+-------
+
+What are RESTful services?
+
+[REST Principles]
+
+> Addressable Resources
+> Simple and Uniform Interfaces [Uniform Interface constraint – understand what a resource is and the HTTP verbs, esources typically represent data entities,  each request tells the API what to do with the resource.]
+> Representation Oriented
+> Comunicate Stateless [Stateless constraint ]
+> Cacheable [Cacheable constraint ]
+
+Client-Server constraint
+
+–
+Layered System-  APIs in server A, and store data on server B and authenticate requests in server C. For example, a client cannot ordinarily tell whether it is connected directly to the server or to an intermediary along the way.
+
+
+
+What are the Differences between WCF Rest and Web API?
+
+WCF Rest
+WebHttpBinding to be enabled for WCF Rest.
+For each method, there have to be attributes like – “WebGet” and “WebInvoke”
+For GET and POST verbs respectively.
+Web API
+Unlike WCF Rest we can use full features of HTTP in Web API.
+Web API can be hosted in IIS or in an application.
+
+How to return the only XML from ASP.NET Web API Service irrespective of the Accept header value?
+
+Include the following line in Register() method of WebApiConfig.cs file in App_Start folder. This line of code completely removes JsonFormatter which forces ASP.NET Web API to always return XML irrespective of the Accept header value in the client request. Use this technique when you want your service to support only XML and not JSON.
+
+
+What new features are introduced in ASP.NET Web API 2.0?
+The new features introduced in ASP.NET Web API framework v2.0 are as follows:
+
+Attribute Routing
+External Authentication
+CORS (Cross-Origin Resource Sharing)
+OWIN (Open Web Interface for .NET) Self Hosting
+IHttpActionResult
+Web API OData
+

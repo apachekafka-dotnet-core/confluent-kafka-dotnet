@@ -1,0 +1,57 @@
+Adapter pattern
+===============
+The adapter pattern is usually used when you don't have control over the target class. My primary use of the adapter pattern would be to create wrappers for a framework class that doesn't implement an interface
+
+Framework classes:
+
+public class TargetA
+{
+    public void Start() { ... }
+    public void End() { ... }
+}
+
+public class TargetB
+{
+    public void Begin() { ... }
+    public void Terminate() { ... }
+}
+=---
+An adapter for them
+
+public interface ITargetAdapter
+{
+    void Open();
+    void Close();
+}
+
+public class AdapterA : ITargetAdapter
+{
+     private TargetA A { get; set; }
+
+     public AdapterA( TargetA a )
+     {
+           this.A = a;
+     }
+
+     public void Open() { this.A.Start(); }
+     public void Close() { this.A.End(); }
+}
+
+public class AdapterB : ITargetAdapter
+{
+     private TargetB B { get; set; }
+
+     public AdapterB( TargetB a )
+     {
+           this.B = a;
+     }
+
+     public void Open() { this.B.Begin(); }
+     public void Close() { this.B.Terminate(); }
+}
+
+Then used as:
+
+ITargetAdapter adapter = new AdapterA( new TargetA() );
+adapter.Open();
+adapter.Close();  

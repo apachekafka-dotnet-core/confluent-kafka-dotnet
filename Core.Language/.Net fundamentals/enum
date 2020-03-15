@@ -1,0 +1,22 @@
+Can an enum use a type other than int to define its values? 
+
+Yes. An enum can be defined to use byte, sbyte, short, ushort, int, uint, long, or ulong. For example: enum Days : byte {Sat=1, Sun, Mon, Tue, Wed, Thu, Fri};
+
+How should an enum be defined that will be used to represent a set of mutually exclusive values that can be combined with bitwise operations like and, or, or exclusive-or? The flags attribute should be used before the enum definition. Each member of the enum should be assigned a unique power of two. The main benefit of this is that the ToString method will display a nicely formatted string. Example: [Flags]
+public enum Pets
+{
+   None = 0, Dog = 1, Cat = 2, Bird = 4, Rodent = 8, Reptile = 16, Other = 32
+};
+
+How can a value be determined to be a valid enum value? For example: public enum ArrivalStatus { Unknown = -3, Late = -1, OnTime = 0, Early = 1 };
+
+The Enum.IsDefined method may be used to validate whether a value is a valid enum member.
+
+
+How can the name assigned to each value in an enum be obtained? 
+
+The Enum.GetNames static method may be called to obtain an array of strings that contains the name for each value in the enum. For example:
+public enum ArrivalStatus { Unknown=-3, Late=-1, OnTime=0, Early=1 };
+string[] names = Enum.GetNames(typeof(ArrivalStatus));
+
+Bryan, Bob. Interviewing for the .NET Stack: Vol. 1: C# and the .NET Framework . Bob Bryan. Kindle Edition. 

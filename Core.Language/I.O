@@ -1,0 +1,25 @@
+I.O
+
+What is a memory mapped file and when should it be used? 
+
+A memory-mapped file provides the most efficient way for multiple processes to communicate with each other by using shared memory. Using a memory-mapped file is more efficient than using a socket connection or using an anonymous pipe. A memory-mapped file can also be used to load a large file on disk into memory for processing by multiple processes. A memory mapped file should be used when the most efficient communication between multiple processes is needed.
+
+
+What functionality does the "using static" statement provide?
+
+using System;
+using static System.Console;
+class Program
+{
+static void Main()
+   {
+      // Console.WriteLine("Hello world!");
+      // If the using static statement is removed,
+      // then the following line will not compile.
+      WriteLine("Hello world!");
+   }
+}
+
+
+What are the components that make up an assembly's full name? 
+Assembly name, culture, public key, and version number make up an assembly's full name. These elements are collectively often referred to as the display name.

@@ -1,0 +1,40 @@
+	> Small Object Heap (SOH) &  Long Object Heap (LOH)
+	SOH is design for small and short live object it move from gen 0 to gen 2(survive via GC), does not mean the object is large than 85k
+
+	If a object is large than 85k, it should be allocated to LOG directly, then it doesn't need to move for performance reason.
+
+2. GC
+	Garbage Collector can be run in different modes to optimize performance
+
+	Workstation mode gives maximum responsiveness to the user and cuts down pauses due to GC. It can run as 'concurrent' or 'non-concurrent', referring to the thread the GC runs on. The default is concurrent, which uses a separate thread for the GC so the application can continue execution while GC runs.
+
+	Server mode gives maximum throughput, scalability, and performance for server environments. Segment sizes and generation thresholds are typically much larger in Server mode than Workstation mode, reflecting the higher demands placed on servers.
+
+	Server mode runs garbage collection in parallel on multiple threads, allocating a separate SOH and LOH to each logical processor to prevent the threads from interfering with each other.
+
+3. Weak Ref
+	Weak object references an alternative source of GC roots, letting you to keep hold of objects while allowing them to be collected if the GC needs to. They're a compromise between code performance and memory efficiency; creating an object takes CPU time, but keeping it loaded takes memory.
+
+	Weak references are particularly suitable for large data structures. For example, imagine you have an application that allows users to browse through large data structures, some of which they might return to. You could convert any strong references to the structures they have browsed into weak references. If users return to these structures, they're available, but if not the GC can reclaim the memory if it needs to.
+
+	> Short weak references// weak reference becomes null if the GC reclaims the object,
+
+	Rectangle rectangle = new Rectangle(15, 10);
+	var weakReference = new WeakReference(rectangle);
+	rectangle = null;
+	bool isAlive = weakReference.IsAlive;
+	if(isAlive)
+	Console.WriteLine("The object is still alive");
+
+	> Long lived weak references // weak reference is alive even after the GC runs
+	Rectangle rectangle = new Rectangle(15, 10);
+	var weakReference = new WeakReference(rectangle, true); //To create a long weak reference, pass “true” as the second parameter to the overloaded constructor of the WeakReference class while creating the weak reference.
+
+4. Profiling memory leaks
+
+5. Tuning
+	Have some notion of how frequently collection will occur (for performance reasons)
+	Don't hold references to objects longer than you need
+	Dispose of objects that implement IDisposable as soon as you're done with them (use the using syntax)
+	Properly implement the IDisposable 
+

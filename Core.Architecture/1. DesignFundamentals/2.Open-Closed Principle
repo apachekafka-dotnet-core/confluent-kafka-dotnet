@@ -1,0 +1,81 @@
+2. Open-Closed Principle
+
+closed for modification means you shouldn’t change the behavior of existing code. we turn to open for extension.
+
+
+code that violates OCP.
+
+public class ErrorLogger
+{
+    private readonly string _whereToLog;
+    public ErrorLogger(string whereToLog)
+    {
+        this._whereToLog = whereToLog.ToUpper();
+    }
+ 
+    public void LogError(string message)
+    {
+        switch (_whereToLog)
+        {
+            case "TEXTFILE":
+                WriteTextFile(message);
+                break;
+            case "EVENTLOG":
+                WriteEventLog(message);
+                break;
+            default:
+                throw new Exception("Unable to log error");
+        }
+    }
+ 
+    private void WriteTextFile(string message)
+    {
+        System.IO.File.WriteAllText(@"C:\Users\Public\LogFolder\Errors.txt", message);
+    }
+ 
+    private void WriteEventLog(string message)
+    {
+        string source = "DNC Magazine";
+        string log = "Application";
+         
+        if (!EventLog.SourceExists(source))
+        {
+            EventLog.CreateEventSource(source, log);
+        }
+        EventLog.WriteEntry(source, message, EventLogEntryType.Error, 1);
+    }
+}
+
+
+--- Solution ---
+
+Here’s the better way. While not fully feature complete, this is a starting point.
+
+public interface IErrorLogger
+{
+    void LogError(string message);
+}
+ 
+public class TextFileErrorLogger : IErrorLogger
+{
+    public void LogError(string message)
+    {
+        System.IO.File.WriteAllText(@"C:\Users\Public\LogFolder\Errors.txt", message);
+    }
+}
+ 
+public class EventLogErrorLogger : IErrorLogger
+{
+    public void LogError(string message)
+    {
+        string source = "DNC Magazine";
+        string log = "Application";
+ 
+        if (!EventLog.SourceExists(source))
+        {
+            EventLog.CreateEventSource(source, log);
+        }
+ 
+        EventLog.WriteEntry(source, message, EventLogEntryType.Error, 1);
+    }
+}

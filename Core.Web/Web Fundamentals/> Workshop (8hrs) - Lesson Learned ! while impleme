@@ -1,0 +1,32 @@
+> Workshop (8hrs) - Lesson Learned ! while implementtion - CI/CD
+----------------------------------------------------------------
+https://www.infoworld.com/article/2608076/murder-in-the-amazon-cloud.html
+
+
+> Event Modelling
+	> Domain Driven Desing/ Event storming
+> Microservices Identification
+	> Bounded Context
+	> Con-law
+> Microservices Implementation
+	> CQRS, Circuit Breaker (Polly)
+	> Event Store
+> WebAPI (endpoint)/Swagger
+> Deployment 
+	> Kafka
+	> Practical 
+	> Docker/Namespace/Network
+	> (RBAC)
+> Testing Microserices (Kafka-Producer and Consumer)
+> Infra- Dev-Intg.Production
+
+
+Microservices Archtect------ 
+
+
+> DevOps
+	> Docker Compose
+	> Docker Networking
+	> Kuberneates
+
+> 

@@ -1,0 +1,16 @@
+Mediator
+-------
+
+> Encapsulate how objects interacts, encapsulating object interation with loose coupling
+> Promote loose coupling between objects
+> Mediator avoids objects referring to each other
+
+Four major components
+
+> Mediator - 
+> Concreate Mediator - Communication between colleage 
+> Colleage
+> Concreate Colleage -- Receive message from mediator
+
+
+

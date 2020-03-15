@@ -1,0 +1,46 @@
+1. Process vs Thread
+2. Sync Basics
+	Synchronization means two or more operations are running in a same context (thread) so that one may block another.
+	Asynchronous means two or more operations are running in different contexts (thread) so that they can run concurrently and 
+
+	> Why is AsyncContext needed when using async/await with a console application?
+		You can synchronously block on a task within Main (using Wait/Result/WaitAll). The semantics are slightly different; in particular, if the async code fails, then Wait/Result/WaitAll will wrap the exception in an AggregateException, while AsyncContext does not.
+
+		Also, AsyncContext treats the main thread specially; instead of sending continuations to the thread pool, it will send them back to that main thread (by default; you can always use ConfigureAwait(false) to avoid this).
+	> What does .ConfigureAwait(false) do?
+		By default, when you use async/await, it will resume on the original thread that started the request. However, if another long-running process currently has taken over that thread, you will be stuck waiting for it to complete. To avoid this issue, you can use a method called ConfigureAwait with a false parameter. When you do, this tells the Task that it can resume itself on any thread that is available instead of waiting for the thread that originally created it. This will speed up responses and avoid many deadlocks.
+
+		However, there is a small loss here. When you resume on another thread, the thread synchronization context is lost. The biggest loss here is that you would lose any Culture or Language settings, along with things like HttpContext.Current from the original thread, though this is no longer a problem in .NET Core. Thus, if you don’t need translations or access to any HttpContext type settings, you are safe to make this call. NOTE: If you need language/culture, you can always store the current values before an await and then re-apply it after the await on the new thread.
+	> async await
+		The “async” keyword enables the “await” keyword in that method and changes how method results are handled. That’s all the async keyword does! It does not run this method on a thread pool thread, or do any other kind of magic. The async keyword only enables the await keyword (and manages the method results).
+
+		The beginning of an async method is executed just like any other method. That is, it runs synchronously until it hits an “await” (or throws an exception).
+
+		The “await” keyword is where things can get asynchronous. Await is like a unary operator: it takes a single argument, an awaitable (an “awaitable” is an asynchronous operation). Await examines that awaitable to see if it has already completed; if the awaitable has already completed, then the method just continues running (synchronously, just like a regular method).
+
+		If “await” sees that the awaitable has not completed, then it acts asynchronously. It tells the awaitable to run the remainder of the method when it completes, and then returns from the async method.
+
+		Later on, when the awaitable completes, it will execute the remainder of the async method. If you’re awaiting a built-in awaitable (such as a task), then the remainder of the async method will execute on a “context” that was captured before the “await” returned.
+
+		I like to think of “await” as an “asynchronous wait”. That is to say, the async method pauses until the awaitable is complete (so it waits), but the actual thread is not blocked (so it’s asynchronous).
+
+		As I mentioned, “await” takes a single argument - an “awaitable” - which is an asynchronous operation. There are two awaitable types already common in the .NET framework: Task<T> and Task.
+
+	> Async Void
+		While almost all your async/await methods should return a Task of some sort, there is one exception to this rule: sometimes, you can use async void. However, when you use this, the caller will not actually wait for that task to complete before resuming itself. It is effectively a fire-and-forget kind of thing. There are two cases where you’d want to use this. 
+
+3. Locking
+4. Thread Safety
+5. Wait Handles
+6. Background worker/Dispatcher
+7. Thread-safe collections
+8. TPL
+	
+
+
+
+
+
+
+
+

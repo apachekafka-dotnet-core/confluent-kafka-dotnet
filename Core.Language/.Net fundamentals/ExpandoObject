@@ -1,0 +1,20 @@
+ExpandoObject
+-------------
+
+The ExpandoObject class provides the capability to create a dynamic type where any type of property, method, or event may be added to it at runtime.
+
+dynamic expando = new ExpandoObject();
+expando.Address = new ExpandoObject();
+expando.Address.State = "WA";
+Console.WriteLine(expando.Address.State);
+Second, as it was already pointed out, ExpandoObject implements INotifyPropertyChanged interface which gives you more control over properties than a dictionary.
+
+-------------------------
+What is the simplest way to add a method to a dynamic object at runtime?
+
+dynamic sampleObject = new ExpandoObject();
+
+sampleObject.Increment = (Action)(() => { sampleObject.Number++; });
+   // Increment the number property.
+   sampleObject.Increment();
+

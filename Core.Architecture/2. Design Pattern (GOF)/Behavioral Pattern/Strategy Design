@@ -1,0 +1,98 @@
+Strategy Design
+----------------
+
+The basic idea of this pattern is that if we encapsulate behavior as objects, we can then select which object to use and, thereby, which behavior to implement based upon some external inputs or state. 
+
+-- Defining Strategy
+
+class Grilling : CookStrategy
+{
+    public override void Cook(string food)
+    {
+        Console.WriteLine("\nCooking " + food + " by grilling it.");
+    }
+}
+
+/// <summary>
+/// A Concrete Strategy class
+/// </summary>
+class OvenBaking : CookStrategy
+{
+    public override void Cook(string food)
+    {
+        Console.WriteLine("\nCooking " + food + " by oven baking it.");
+    }
+}
+
+/// <summary>
+/// A Concrete Strategy class
+/// </summary>
+class DeepFrying : CookStrategy
+{
+    public override void Cook(string food)
+    {
+        Console.WriteLine("\nCooking " + food + " by deep frying it");
+    }
+}
+
+---/// <summary>
+/// The Context class, which maintains a reference to the chosen Strategy.
+/// </summary>
+class CookingMethod
+{
+    private string Food;
+    private CookStrategy _cookStrategy;
+
+    public void SetCookStrategy(CookStrategy cookStrategy)
+    {
+        this._cookStrategy = cookStrategy;
+    }
+
+    public void SetFood(string name)
+    {
+        Food = name;
+    }
+
+    public void Cook()
+    {
+        _cookStrategy.Cook(Food);
+        Console.WriteLine();
+    }
+}
+
+
+---////
+static void Main(string[] args)
+{
+    CookingMethod cookMethod = new CookingMethod();
+
+    Console.WriteLine("What food would you like to cook?");
+    var food = Console.ReadLine();
+    cookMethod.SetFood(food);
+
+    Console.WriteLine("What cooking strategy would you like to use (1-3)?");
+    int input = int.Parse(Console.ReadKey().KeyChar.ToString());
+            
+    switch(input)
+    {
+        case 1:
+            cookMethod.SetCookStrategy(new Grilling());
+            cookMethod.Cook();
+            break;
+
+        case 2:
+            cookMethod.SetCookStrategy(new OvenBaking());
+            cookMethod.Cook();
+            break;
+
+        case 3:
+            cookMethod.SetCookStrategy(new DeepFrying());
+            cookMethod.Cook();
+            break;
+
+        default:
+            Console.WriteLine("Invalid Selection!");
+            break;
+    }
+    Console.ReadKey();
+}

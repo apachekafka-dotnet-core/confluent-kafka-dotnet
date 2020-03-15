@@ -1,0 +1,45 @@
+1. Authentication, Authorization
+2. Caching 
+3. Session Management
+4. MVC filters and applications
+	How to allow users to submit HTML tags in ASP.NET MVC?
+	
+
+	[ValidateInput(false)]
+	public class HomeController : Controller
+	{
+	    public ActionResult AddArticle()
+	    {
+	        return View();
+	    }
+	}
+
+
+	public class BlogModel
+	{
+	    [Required]
+	    [Display(Name = "Title")]
+	    public string Title { get; set; }
+
+	    [AllowHtml]
+	    [Required]
+	    [Display(Name = "Description")]
+	    public string Description { get; set; }
+	}
+
+
+
+5. Dependency Injection
+	 - DI Container
+	 - Scanning an assembly for types
+	 - Object Lifetime (Transient,Scope)
+6. ModelBinder
+	[HttpPost]
+	public ActionResult<object> Post([ModelBinder(binderType: typeof(CsvModelBinder))] IEnumerable<Person> persons)
+
+Single sign-on
+Auth0
+
+
+How Kerberos works?
+How SSL/TLS handshake works?

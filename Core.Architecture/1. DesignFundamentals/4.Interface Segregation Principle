@@ -1,0 +1,72 @@
+Interface Segregation Principle
+
+The Interface Segregation Principle (ISP) states that interfaces should be small and should contain only those methods or properties that are effectively required. We will explore ISP in this article.
+
+---
+Violating Interface Segregation Principle
+
+Example: team now needs to also send SMS or text messages and decides to leverage the existing interface.
+
+public interface IMessage
+{
+    IList<string> SendToAddress { get; set; }
+    string Subject { get; set; }
+    string MessageText { get; set; }
+    bool Send();
+}
+  
+public class EmailMessage : IMessage
+{
+    IList<string> SendToAddress { get; set; }
+    string Subject { get; set; }
+    string MessageText { get; set; }
+  
+    bool Send()
+    {
+        // Contact SMTP server and send message
+    }
+}
+
+--- Applying Interface Segregation Principle ---
+
+public interface IMessage
+{
+    IList<string> SendTo { get; set; }
+    string MessageText { get; set; }
+    bool Send();
+}
+  
+public interface IEmailMessage
+{
+    IList<string> CCTo { get; set; }
+    IList<string> BCCTo { get; set; }
+    IList<string> AttachementFilePaths { get; set; }
+    string Subject { get; set; }
+}
+  
+public class EmailMessage : IMessage, IEmailMessage
+{
+    IList<string> SendTo { get; set; }
+    IList<string> CCTo { get; set; }
+    IList<string> BCCTo { get; set; }
+    IList<string> AttachementFilePaths { get; set; }
+    string Subject { get; set; }
+    string MessageText { get; set; }
+     
+    bool Send()
+    {
+        // Contact SMTP server and send message
+    }
+}
+  
+public class SMSMessage : IMessage
+{
+    IList<string> SendTo { get; set; }
+    string MessageText { get; set; }
+  
+    bool Send()
+    {
+        // Contact SMS server and send message
+    }
+}
+

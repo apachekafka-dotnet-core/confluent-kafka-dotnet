@@ -1,0 +1,48 @@
+Bubble Sort Algorithm 
+---------------------------
+The Quicksort Algorithm
+--------------------------
+
+
+> How to find the sum of digits of a positive integer?
+Ans.: The user will input a positive integer and the method should return the sum of all the digits in that integer.
+
+input: 168, output: 15
+void SumOfDigits(int num)  
+{  
+    int sum = 0;  
+    while (num > 0)  
+    {  
+        sum += num % 10;  
+        num /= 10;  
+    }  
+    Console.WriteLine(sum);  
+} 
+
+
+> How to count the occurrence of each character in a string?
+
+void Countcharacter(string str)  
+{  
+    Dictionary<char, int> characterCount = new Dictionary<char, int>();  
+  
+    foreach (var character in str)  
+    {  
+        if (character != ' ')  
+        {  
+            if (!characterCount.ContainsKey(character))  
+            {  
+                characterCount.Add(character, 1);  
+            }  
+            else  
+            {  
+                characterCount[character]++;  
+            }  
+        }  
+  
+    }  
+    foreach (var character in characterCount)  
+    {  
+        Console.WriteLine("{0} - {1}", character.Key, character.Value);  
+    }  
+}  

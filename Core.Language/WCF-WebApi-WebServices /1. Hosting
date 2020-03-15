@@ -1,0 +1,80 @@
+1. Hosting
+	Self-hosting/Kestrel/WebHostBuilder
+	HostedServcices(HostedServices are a new thing in ASP.NET Core 2.0 and can be used to run tasks in the asynchronously in the background of your application.)
+	
+	Middleware (A middleware is a peace of code that handles the request pipeline. Imagine the request pipeline as huge tube where you can call something in and where an echo comes back. The middlewares are responsible for create this echo or to manipulate the sound, to enrich the information or to handle the source sound or to handle the echo.
+	Middlewares are executed in the order they are configured. The first configured middleware is the first that gets executed.)
+
+	OutputFormatters
+	OutputFormatters are classes that turn your data into a different format to sent them trough HTTP to the clients. Web API uses a default OutputFormatter to turn objects into JSON, which is the default format to send data in a structured way. Other build in formatters are a XML formatter and a plan text formatter.
+
+	services.AddMvc(options =>
+	{
+	    options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+	    options.RespectBrowserAcceptHeader = true; // false by default
+	});
+
+	Worker Process
+	Handler
+	HttpModule
+	Filter (types of filter)
+	AppPool(Integrated and Classic)
+
+How Kestrel server works?
+A Definition of the Kestrel Web Server
+Kestrel is considered a preferred web server for newer ASP.NET applications (see this post for a comparison to IIS and why you need both). It is based on the libuv library, the same one used by node.js. Libuv supports an event-driven style of programming. Some of its core utilities include:
+
+Non-blocking network support
+Asynchronous file system access
+Timers
+Child processes
+It allows ASP.NET Core applications to be run easily on other cross-platform webservers such as Nginx and Apache, without the need to address varying startup configurations. By using Kestrel as an in-process server, applications will have a consistent process (Startup (Main(), Startup.ConfigireServices(), Startup.Configure()) ) even with cross-platform support.
+
+How Kestrel Web Server Works
+Applications are often written to respond to human actions. With event-driven programming, there is a loop that listens for events. It then triggers a callback function. To reduce the number of SYS calls, all other work is executed in managed code on standard .NET worker threads.
+
+Kestrel provides an event loop and callback-based notifications of I/O. Libuv manages the gathering and monitoring of events from the OS. Moreover, the user can register callbacks as an event occurs. So, Kestrel uses libuv for I/O work and supports running multiple event loops.
+
+Because it is so lightweight, Kestrel does not allow you to do SSL termination, URL rewrites, or GZip compression, but that same lightweight design can make other web servers look slow by comparison. It was built to be fast; in fact, it’s six times faster than node.js for static and plain text operations.
+
+Since Kestrel is not a fully-featured web server, you should run it behind IIS or NGINX. It was designed to make ASP.NET as fast as possible but is limited in its ability to manage security and serve static files. If you’re using ASP.NET Core with Kestrel, you can take advantage of Prefix for powerful code profiling.
+
+
+2. Binding
+	Route
+		app.UseMvcWithDefaultRoute(); v/s app.UseMvc()
+		AttributeRoute
+
+	Swagger
+
+
+3. Serialization
+	XML Serialization
+
+	Json Serialization
+		[WCF-Microsoft Serializer] - [ScriptIgnore]
+		[JsonNet] - [JsonIgnore]
+
+4. SOAP/REST
+   Difference between SOAP and REST?
+
+5. Authentication & Authorization
+   SSL/TLS?
+   Https handsaking
+   Kerberos
+   Authentication and Authorization in WCF
+
+6. Session management
+	inproc - default stored in web. config.
+	outproc - stored in server side.
+	Sql server - stored in database.
+
+7. WCF messaging patterns
+	DataMember
+	DataContract
+
+8. WebService
+
+8. Unit Testing 
+9. Deployment strategies
+10. Extensibility
