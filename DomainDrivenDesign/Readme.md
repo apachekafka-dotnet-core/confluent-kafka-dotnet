@@ -1,4 +1,4 @@
-Modern Software Architecture
+DDD Architecture
 ----------------------------
 
 
@@ -180,7 +180,7 @@ DDD Layered Architeture
 	- Methods that validate the state of the objects
 
 
-CQRS -(Command and Query Responsibility Segaragation)
+####CQRS -(Command and Query Responsibility Segaragation)
 
  	- Distinct optimization
  	- Scalability potential
@@ -188,12 +188,12 @@ CQRS -(Command and Query Responsibility Segaragation)
  	- Hastle free enhancement
 
 ##### Command
- - Alter state
- - Deosn't return data
- - Benefits
- - DOmain Model
- - Table Module
- - Transaction Script Model
+	- Alter state
+	- Deosn't return data
+	- Benefits
+	- DOmain Model
+	- Table Module
+	- Transaction Script Model
 
 ##### Query
 	- Returns data
@@ -255,10 +255,7 @@ Stream  | Table
 	+ Replay can be used to form and project any kind of state from abstracted lower level eventsource
 
 
-###CQRS
-+	Regular CQRS = [Post-Redirect-Get web pattern]
-+	Premium CQRS = Separating by two separate commands (command and query)-Replicate db - and return query response from 
-replicated db
+##	CQRS
 
 #### Command & Query Storage Synchronization
 
@@ -267,8 +264,12 @@ replicated db
 +	Schedule (Controlled staleness, A job runs periodically and updates the read storage)
 +	On-Demand (Controlled up-to-date, Updates triggerd by requests (if old enough))
 
->Delux CQRS
-+	Message Bus
+
++	Regular CQRS = [Post-Redirect-Get web pattern]
++	Premium CQRS = Separating by two separate commands (command and query)-Replicate db - and return query response from 
+replicated db
++	Delux CQRS
+	+	Message Bus
 
 
 ###Pillars
