@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/Rx8.ImmutableObserver.csproj": {}
+  },
+  "projects": {
+    "/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/Rx8.ImmutableObserver.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/Rx8.ImmutableObserver.csproj",
+        "projectName": "Rx8.ImmutableObserver",
+        "projectPath": "/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/Rx8.ImmutableObserver.csproj",
+        "packagesPath": "/Users/ajachoud/.nuget/packages/",
+        "outputPath": "/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ajachoud/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

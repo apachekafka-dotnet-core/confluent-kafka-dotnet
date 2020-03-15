@@ -1,0 +1,14 @@
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\bin\Debug\netcoreapp2.2\Example4.deps.json
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\bin\Debug\netcoreapp2.2\Example4.runtimeconfig.json
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\bin\Debug\netcoreapp2.2\Example4.runtimeconfig.dev.json
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\bin\Debug\netcoreapp2.2\Example4.dll
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\bin\Debug\netcoreapp2.2\Example4.pdb
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\obj\Debug\netcoreapp2.2\Example4.csprojAssemblyReference.cache
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\obj\Debug\netcoreapp2.2\Example4.csproj.CoreCompileInputs.cache
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\obj\Debug\netcoreapp2.2\Example4.AssemblyInfoInputs.cache
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\obj\Debug\netcoreapp2.2\Example4.AssemblyInfo.cs
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\obj\Debug\netcoreapp2.2\Example4.csproj.CopyComplete
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\obj\Debug\netcoreapp2.2\Example4.dll
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp4\obj\Debug\netcoreapp2.2\Example4.pdb

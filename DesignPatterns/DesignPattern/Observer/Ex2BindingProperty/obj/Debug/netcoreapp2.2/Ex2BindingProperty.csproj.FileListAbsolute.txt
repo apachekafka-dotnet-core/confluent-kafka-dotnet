@@ -1,0 +1,11 @@
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\bin\Debug\netcoreapp2.2\Ex2BindingProperty.deps.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\bin\Debug\netcoreapp2.2\Ex2BindingProperty.runtimeconfig.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\bin\Debug\netcoreapp2.2\Ex2BindingProperty.runtimeconfig.dev.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\bin\Debug\netcoreapp2.2\Ex2BindingProperty.dll
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\bin\Debug\netcoreapp2.2\Ex2BindingProperty.pdb
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\obj\Debug\netcoreapp2.2\Ex2BindingProperty.csprojAssemblyReference.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\obj\Debug\netcoreapp2.2\Ex2BindingProperty.csproj.CoreCompileInputs.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\obj\Debug\netcoreapp2.2\Ex2BindingProperty.AssemblyInfoInputs.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\obj\Debug\netcoreapp2.2\Ex2BindingProperty.AssemblyInfo.cs
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\obj\Debug\netcoreapp2.2\Ex2BindingProperty.dll
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Ex2BindingProperty\obj\Debug\netcoreapp2.2\Ex2BindingProperty.pdb

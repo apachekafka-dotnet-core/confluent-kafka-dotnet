@@ -1,0 +1,14 @@
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/Rx12Sequence
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/Rx12Sequence.deps.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/Rx12Sequence.runtimeconfig.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/Rx12Sequence.runtimeconfig.dev.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/Rx12Sequence.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/Rx12Sequence.pdb
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/System.Reactive.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/bin/Debug/netcoreapp3.1/System.Reactive.xml
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/obj/Debug/netcoreapp3.1/Rx12Sequence.csprojAssemblyReference.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/obj/Debug/netcoreapp3.1/Rx12Sequence.AssemblyInfoInputs.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/obj/Debug/netcoreapp3.1/Rx12Sequence.AssemblyInfo.cs
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/obj/Debug/netcoreapp3.1/Rx12Sequence.csproj.CopyComplete
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/obj/Debug/netcoreapp3.1/Rx12Sequence.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx12Sequence/obj/Debug/netcoreapp3.1/Rx12Sequence.pdb

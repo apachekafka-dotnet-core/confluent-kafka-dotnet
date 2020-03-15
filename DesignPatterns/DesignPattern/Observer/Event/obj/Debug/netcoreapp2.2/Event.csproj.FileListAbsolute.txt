@@ -1,0 +1,11 @@
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\bin\Debug\netcoreapp2.2\Event.deps.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\bin\Debug\netcoreapp2.2\Event.runtimeconfig.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\bin\Debug\netcoreapp2.2\Event.runtimeconfig.dev.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\bin\Debug\netcoreapp2.2\Event.dll
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\bin\Debug\netcoreapp2.2\Event.pdb
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\obj\Debug\netcoreapp2.2\Event.csprojAssemblyReference.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\obj\Debug\netcoreapp2.2\Event.csproj.CoreCompileInputs.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\obj\Debug\netcoreapp2.2\Event.AssemblyInfoInputs.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\obj\Debug\netcoreapp2.2\Event.AssemblyInfo.cs
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\obj\Debug\netcoreapp2.2\Event.dll
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Specification\Event\obj\Debug\netcoreapp2.2\Event.pdb

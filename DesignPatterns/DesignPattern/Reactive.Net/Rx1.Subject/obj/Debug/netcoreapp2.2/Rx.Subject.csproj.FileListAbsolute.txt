@@ -1,0 +1,10 @@
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/bin/Debug/netcoreapp2.2/Rx.Subject.deps.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/bin/Debug/netcoreapp2.2/Rx.Subject.runtimeconfig.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/bin/Debug/netcoreapp2.2/Rx.Subject.runtimeconfig.dev.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/bin/Debug/netcoreapp2.2/Rx.Subject.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/bin/Debug/netcoreapp2.2/Rx.Subject.pdb
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/obj/Debug/netcoreapp2.2/Rx.Subject.csprojAssemblyReference.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/obj/Debug/netcoreapp2.2/Rx.Subject.AssemblyInfoInputs.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/obj/Debug/netcoreapp2.2/Rx.Subject.AssemblyInfo.cs
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/obj/Debug/netcoreapp2.2/Rx.Subject.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/obj/Debug/netcoreapp2.2/Rx.Subject.pdb

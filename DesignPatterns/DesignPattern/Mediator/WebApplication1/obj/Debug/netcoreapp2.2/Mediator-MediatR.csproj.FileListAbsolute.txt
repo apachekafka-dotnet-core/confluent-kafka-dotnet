@@ -1,0 +1,14 @@
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\bin\Debug\netcoreapp2.2\Mediator-MediatR.deps.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\bin\Debug\netcoreapp2.2\Mediator-MediatR.runtimeconfig.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\bin\Debug\netcoreapp2.2\Mediator-MediatR.runtimeconfig.dev.json
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\bin\Debug\netcoreapp2.2\Mediator-MediatR.dll
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\bin\Debug\netcoreapp2.2\Mediator-MediatR.pdb
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.csprojAssemblyReference.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.csproj.CoreCompileInputs.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.RazorAssemblyInfo.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.RazorAssemblyInfo.cs
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.AssemblyInfoInputs.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.AssemblyInfo.cs
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.RazorTargetAssemblyInfo.cache
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.dll
+Y:\Ajay\Learning\Nationwide-Training\DesignPattern\Mediator1\WebApplication1\obj\Debug\netcoreapp2.2\Mediator-MediatR.pdb

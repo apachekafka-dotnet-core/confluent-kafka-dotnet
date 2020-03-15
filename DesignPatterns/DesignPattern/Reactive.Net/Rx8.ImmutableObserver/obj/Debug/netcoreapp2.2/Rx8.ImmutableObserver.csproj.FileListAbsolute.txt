@@ -1,0 +1,10 @@
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/bin/Debug/netcoreapp2.2/Rx8.ImmutableObserver.deps.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/bin/Debug/netcoreapp2.2/Rx8.ImmutableObserver.runtimeconfig.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/bin/Debug/netcoreapp2.2/Rx8.ImmutableObserver.runtimeconfig.dev.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/bin/Debug/netcoreapp2.2/Rx8.ImmutableObserver.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/bin/Debug/netcoreapp2.2/Rx8.ImmutableObserver.pdb
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/obj/Debug/netcoreapp2.2/Rx8.ImmutableObserver.csprojAssemblyReference.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/obj/Debug/netcoreapp2.2/Rx8.ImmutableObserver.AssemblyInfoInputs.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/obj/Debug/netcoreapp2.2/Rx8.ImmutableObserver.AssemblyInfo.cs
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/obj/Debug/netcoreapp2.2/Rx8.ImmutableObserver.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx8.ImmutableObserver/obj/Debug/netcoreapp2.2/Rx8.ImmutableObserver.pdb

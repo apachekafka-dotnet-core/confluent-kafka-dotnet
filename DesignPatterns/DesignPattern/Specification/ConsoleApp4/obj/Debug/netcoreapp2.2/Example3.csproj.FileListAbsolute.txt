@@ -1,0 +1,14 @@
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\bin\Debug\netcoreapp2.2\Example3.deps.json
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\bin\Debug\netcoreapp2.2\Example3.runtimeconfig.json
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\bin\Debug\netcoreapp2.2\Example3.runtimeconfig.dev.json
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\bin\Debug\netcoreapp2.2\Example3.dll
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\bin\Debug\netcoreapp2.2\Example3.pdb
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\bin\Debug\netcoreapp2.2\Model.dll
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\bin\Debug\netcoreapp2.2\Model.pdb
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\obj\Debug\netcoreapp2.2\Example3.csprojAssemblyReference.cache
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\obj\Debug\netcoreapp2.2\Example3.csproj.CoreCompileInputs.cache
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\obj\Debug\netcoreapp2.2\Example3.AssemblyInfoInputs.cache
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\obj\Debug\netcoreapp2.2\Example3.AssemblyInfo.cs
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\obj\Debug\netcoreapp2.2\Example3.csproj.CopyComplete
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\obj\Debug\netcoreapp2.2\Example3.dll
+C:\Users\ajchou\source\repos\ConsoleApp21\ConsoleApp1\obj\Debug\netcoreapp2.2\Example3.pdb

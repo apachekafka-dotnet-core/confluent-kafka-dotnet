@@ -1,0 +1,10 @@
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/bin/Debug/netcoreapp2.2/Ex11ExceptionHandling.deps.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/bin/Debug/netcoreapp2.2/Ex11ExceptionHandling.runtimeconfig.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/bin/Debug/netcoreapp2.2/Ex11ExceptionHandling.runtimeconfig.dev.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/bin/Debug/netcoreapp2.2/Ex11ExceptionHandling.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/bin/Debug/netcoreapp2.2/Ex11ExceptionHandling.pdb
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/obj/Debug/netcoreapp2.2/Ex11ExceptionHandling.csprojAssemblyReference.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/obj/Debug/netcoreapp2.2/Ex11ExceptionHandling.AssemblyInfoInputs.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/obj/Debug/netcoreapp2.2/Ex11ExceptionHandling.AssemblyInfo.cs
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/obj/Debug/netcoreapp2.2/Ex11ExceptionHandling.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Ex11ExceptionHandling/obj/Debug/netcoreapp2.2/Ex11ExceptionHandling.pdb

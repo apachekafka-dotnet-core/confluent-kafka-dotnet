@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediator-MediatR", "Mediator-MediatR.csproj", "{71C78FBC-EA61-4597-A277-0FDDAD1C6DBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71C78FBC-EA61-4597-A277-0FDDAD1C6DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C78FBC-EA61-4597-A277-0FDDAD1C6DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C78FBC-EA61-4597-A277-0FDDAD1C6DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C78FBC-EA61-4597-A277-0FDDAD1C6DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

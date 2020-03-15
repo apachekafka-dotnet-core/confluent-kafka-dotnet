@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Rx13EventBroker/1.0.0": {
+        "dependencies": {
+          "Autofac": "5.1.2",
+          "System.Reactive": "4.2.0-preview.102",
+          "System.Reactive.Reference": "4.2.0.0"
+        },
+        "runtime": {
+          "Rx13EventBroker.dll": {}
+        }
+      },
+      "Autofac/5.1.2": {
+        "runtime": {
+          "lib/netstandard2.1/Autofac.dll": {
+            "assemblyVersion": "5.1.2.0",
+            "fileVersion": "5.1.2.0"
+          }
+        }
+      },
+      "System.Reactive/4.2.0-preview.102": {},
+      "System.Reactive.Reference/4.2.0.0": {
+        "runtime": {
+          "System.Reactive.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.2.0.102"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Rx13EventBroker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Autofac/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iGEx5Cm6Uor6/bZkgCHHjJO8cEQvDSOxgzNmHGJgGOnLDCe0b8NpOlhotsqx8dFvBDCsEX/V3YGRR30sRQLsxw==",
+      "path": "autofac/5.1.2",
+      "hashPath": "autofac.5.1.2.nupkg.sha512"
+    },
+    "System.Reactive/4.2.0-preview.102": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sUaC/H2GOR8vfG943v4avbTZfdXzR9s6rwB/PEvzKGRHGxDsYrNSH0d6TzrDR0tYvaOfPZezoKTZLhL/23DrDQ==",
+      "path": "system.reactive/4.2.0-preview.102",
+      "hashPath": "system.reactive.4.2.0-preview.102.nupkg.sha512"
+    },
+    "System.Reactive.Reference/4.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

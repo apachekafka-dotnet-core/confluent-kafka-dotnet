@@ -1,0 +1,10 @@
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/bin/Debug/netcoreapp2.2/Rx10.SequenceFiltering.deps.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/bin/Debug/netcoreapp2.2/Rx10.SequenceFiltering.runtimeconfig.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/bin/Debug/netcoreapp2.2/Rx10.SequenceFiltering.runtimeconfig.dev.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/bin/Debug/netcoreapp2.2/Rx10.SequenceFiltering.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/bin/Debug/netcoreapp2.2/Rx10.SequenceFiltering.pdb
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/obj/Debug/netcoreapp2.2/Rx10.SequenceFiltering.csprojAssemblyReference.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/obj/Debug/netcoreapp2.2/Rx10.SequenceFiltering.AssemblyInfoInputs.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/obj/Debug/netcoreapp2.2/Rx10.SequenceFiltering.AssemblyInfo.cs
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/obj/Debug/netcoreapp2.2/Rx10.SequenceFiltering.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx10.SequenceFiltering/obj/Debug/netcoreapp2.2/Rx10.SequenceFiltering.pdb

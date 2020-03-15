@@ -1,0 +1,15 @@
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/obj/Debug/netcoreapp3.1/Rx13EventBroker.csprojAssemblyReference.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/obj/Debug/netcoreapp3.1/Rx13EventBroker.AssemblyInfoInputs.cache
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/obj/Debug/netcoreapp3.1/Rx13EventBroker.AssemblyInfo.cs
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/Rx13EventBroker
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/Rx13EventBroker.deps.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/Rx13EventBroker.runtimeconfig.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/Rx13EventBroker.runtimeconfig.dev.json
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/Rx13EventBroker.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/Rx13EventBroker.pdb
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/Autofac.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/System.Reactive.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/bin/Debug/netcoreapp3.1/System.Reactive.xml
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/obj/Debug/netcoreapp3.1/Rx13EventBroker.csproj.CopyComplete
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/obj/Debug/netcoreapp3.1/Rx13EventBroker.dll
+/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx13EventBroker/obj/Debug/netcoreapp3.1/Rx13EventBroker.pdb

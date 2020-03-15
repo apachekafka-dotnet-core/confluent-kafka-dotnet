@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{1C69DFD7-28B7-4369-A465-165FBE2C1458}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.ItemProperties.Rx.Rx10.SequenceFiltering PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Rx.Rx7.ReplayAndBehavior PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Rx13EventBroker/Program.cs">
+    <Files>
+      <File FileName="Rx10.SequenceFiltering/Program.cs" Line="27" Column="6" />
+      <File FileName="Rx9.BlockingUnBlockingSequenceGenerator/Program.cs" />
+      <File FileName="Ex11ExceptionHandling/Program.cs" Line="36" Column="26" />
+      <File FileName="Rx12Sequence/Program.cs" Line="29" Column="40" />
+      <File FileName="ConsoleApp21/Program.cs" Line="34" Column="30" />
+      <File FileName="Rx13EventBroker/Program.cs" Line="15" Column="8" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Specification" expanded="True">
+            <Node name="Rx" expanded="True">
+              <Node name="Rx12Sequence" expanded="True" />
+              <Node name="Rx13EventBroker" expanded="True" selected="True" />
+              <Node name="Rx5.Subject" expanded="True" />
+            </Node>
+            <Node name="SpecificationPattern" expanded="True">
+              <Node name="Example2" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Rx.Rx8.ImmutableObserver FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.SpecificationPattern.Example2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Rx.Rx9.CreateUnBlockingSequenceGenerator PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx.Subject/Program.cs" relfile="Rx.Subject/Program.cs" line="47" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx9.BlockingUnBlockingSequenceGenerator/Program.cs" relfile="Rx9.BlockingUnBlockingSequenceGenerator/Program.cs" line="88" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx9.BlockingUnBlockingSequenceGenerator/Program.cs" relfile="Rx9.BlockingUnBlockingSequenceGenerator/Program.cs" line="88" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Nationwide-Training/DesignPattern/Specification/Rx9.BlockingUnBlockingSequenceGenerator/Program.cs" relfile="Rx9.BlockingUnBlockingSequenceGenerator/Program.cs" line="83" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

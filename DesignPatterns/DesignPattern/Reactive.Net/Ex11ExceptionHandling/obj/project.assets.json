@@ -1,0 +1,57 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": []
+  },
+  "packageFolders": {
+    "C:\\Users\\ajchou\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Reactive.Net\\Ex11ExceptionHandling\\Rx7.ExceptionHandling.csproj",
+      "projectName": "Rx7.ExceptionHandling",
+      "projectPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Reactive.Net\\Ex11ExceptionHandling\\Rx7.ExceptionHandling.csproj",
+      "packagesPath": "C:\\Users\\ajchou\\.nuget\\packages\\",
+      "outputPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Reactive.Net\\Ex11ExceptionHandling\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\ajchou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461"
+        ],
+        "assetTargetFallback": true,
+        "warn": true
+      }
+    }
+  }
+}
