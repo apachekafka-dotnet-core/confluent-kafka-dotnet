@@ -31,44 +31,25 @@ Primary goal of avoiding misunderstanding and making the languge of the business
 -	Integrate component with-in system
 
 
-###Context Mapping --
+###	Context Mapping --
 Context map is the diagram that provides a comprenshive view of the system being designed. ex: Core Domain, BackOffice, Club Site, Weather Forecasts
 
 Direction of relationship - Upstream (U)and downstream (D) - Upstream influnce or request downstream for change, vice versa not true.
 
-####Conformist####
+###	Conformist
 Downstream context dependes on upstreeeam context, no negotiation possible
 -	Customer/Supplier - Customer context dependends on supplier context, chances to raise concerns and hame them addressed in some way (there is room to negotiate)
 -	Partner - Mutual dependency between the two context
 -	Shared Kernel - Shared model that can;t be changed without consulting teams in charge of contexts that depends on it.
 -	Anti-corruption layer - Additional layer giving the downstream context a fixed interface no matter what happens in the upstream context.
-
-- Event Storming (identifyng obserbable event and domain in business)
+- 	Event Storming (identifyng obserbable event and domain in business)
 	- Find what causes the event
 		- User action ?
 		- asynchornous event ?
 		- Another event ?
 
-DDD Layered Architeture
+DDD Layers
 ========================
-####Business Layer Pattern
-	- Transcation Script Pattern
-		- Actions - Each procedure handles a single task
-		- Logical Transcation - end-to -end 
-	- Table Module Pattern
-		- Business rules in db/module contains all methods that process the data
-	- Domain Model Pattern
-		- Aggregated objects (data and behavior)
-		- Persistence agnositic 
-		- Paired with domain services
-#####Domain Layer
-	- Logic invariant to use-cases
-	- Domain Model (this classes expected to expose data and behaviour)
-		- Models for the business domain - Object oriented entity model, functional model
-		- Guidelines for classes in an entity model - DDD conventions (factories, value types)
-		- Data and behavior
-		- Anemic model - plain data containers, behavior moved into service class.
-
 
 #### Domain
 	- Object Model 
@@ -82,7 +63,24 @@ DDD Layered Architeture
 		- Understand the language to understand the business 
 		- Keep of business in sync with code (working on exposing behvaiour of domain, how domain works)-it's all about behavior much more than data.
 
-#### Domain Layer
+####	Business Layer Pattern
+	- Transcation Script Pattern
+		- Actions - Each procedure handles a single task
+		- Logical Transcation - end-to -end 
+	- Table Module Pattern
+		- Business rules in db/module contains all methods that process the data
+	- Domain Model Pattern
+		- Aggregated objects (data and behavior)
+		- Persistence agnositic 
+		- Paired with domain services
+
+####	Domain Layer
+	- Logic invariant to use-cases
+	- Domain Model (this classes expected to expose data and behaviour)
+		- Models for the business domain - Object oriented entity model, functional model
+		- Guidelines for classes in an entity model - DDD conventions (factories, value types)
+		- Data and behavior
+		- Anemic model - plain data containers, behavior moved into service class.
 	- Domain Model (Great for command, Requires fixes for persistence, Expose behavior to presentation)
 		Module(s) - 
 		. Entities
@@ -105,7 +103,7 @@ DDD Layered Architeture
 			. Protect as much as possible the graph of entitites from outsider access
 			. Ensure the state of child entities is always consistent
 			. Actual boundaries of aggregates are deteermined by business rules
-			> Aggregate 
+			. Aggregate 
 				if entity only remain part of one entity example: if address entity only part of Customer Entity
 
 				Common Responsibilities associated with an aggregateed root
@@ -118,26 +116,26 @@ DDD Layered Architeture
 				- One reposistory per root
 
 
-			> Distinct Aggregate - ex: Address entity is part of multiple entry, like Customer, Security etc.
+			. Distinct Aggregate - ex: Address entity is part of multiple entry, like Customer, Security etc.
 
 
 
-		> Persistencee Model 
+		. Persistencee Model 
 			. Object-oriendteed model 1:1 with underlying relational data
 			. Donest include business logic (except constraints/validation)
-		> Domain Model
+		. Domain Model
 			. Object-oriented model for business logic
 			. Persistable Model
 			. No persistence logic inside
 
-		 > Two choice - resistence to change
+		 . Two choice - resistence to change
 	 	. Object as plain data containers
 	 	. Business logic belongs to other components
 	 	or
 	 	. Data and behavior in the same object
 	 	.Business logic expreessed as the combination of objects
 
-	 	> Anemic Models (Great of queries, no business rules in the class, Risk of gettting into incongruent state)
+	 	. Anemic Models (Great of queries, no business rules in the class, Risk of gettting into incongruent state)
 	 		- Anti-pattern because it takes behavior away from domain objects, entities only made of properties and required logic placed in service components, that actually orchestrate the application logic
 	 	
 
@@ -264,7 +262,7 @@ Stream  | Table
 +	Schedule (Controlled staleness, A job runs periodically and updates the read storage)
 +	On-Demand (Controlled up-to-date, Updates triggerd by requests (if old enough))
 
-
+- Options
 +	Regular CQRS = [Post-Redirect-Get web pattern]
 +	Premium CQRS = Separating by two separate commands (command and query)-Replicate db - and return query response from 
 replicated db
@@ -272,8 +270,8 @@ replicated db
 	+	Message Bus
 
 
-###Pillars
-
+Pillars
+=======
 ##### DDD Analysis
 + Ubiquitous Language
 + Bounded Context
@@ -284,8 +282,8 @@ replicated db
 ##### Top down design 
 + Task-based and starting from UX
 
-##### Distinct Stacks
-+ Distinct 
+##### CQRS
++ Distinct Stacks 
 
 
 
