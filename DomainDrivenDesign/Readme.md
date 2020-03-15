@@ -227,12 +227,10 @@ Command  | Queries
 Event  | Orders
 Stream  | Table 
 
-###	Event store types of subscription
+###	Event: types of subscription
 
 - Volatile -> Call back a function whenever an event is written to a given stream until the subscription is stopped
-
 - Catch-up -> Call back afunction from a given position up to the end and then turns into volatile
-
 - Persistence -> Multiple consumers are guaranteed to receive at least once notification of events written possibly more.
 
 
@@ -252,7 +250,7 @@ Stream  | Table
 	+ Replay can be used to form and project any kind of state from abstracted lower level eventsource
 
 
-##	CQRS
+###	Command: CQRS
 
 #### Command & Query Storage Synchronization
 
@@ -261,7 +259,7 @@ Stream  | Table
 +	Schedule (Controlled staleness, A job runs periodically and updates the read storage)
 +	On-Demand (Controlled up-to-date, Updates triggerd by requests (if old enough))
 
-- Options
+- Types
 +	Regular CQRS = [Post-Redirect-Get web pattern]
 +	Premium CQRS = Separating by two separate commands (command and query)-Replicate db - and return query response from 
 replicated db
