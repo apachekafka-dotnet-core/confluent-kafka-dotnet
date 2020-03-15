@@ -73,14 +73,14 @@ DDD Layered Architeture
 
 
 #### Domain
-	> Object Model 
+	- Object Model 
 		- Context mapping is paramount
 		- Modeling the domain through objeects is just one of the possible options
-	> Data agnostic
+	- Data agnostic
 		- The object model must be easy to persist
 		- Persistenc, through, should not be primary concern
 		- Primary concern is making sense of the business domain
-	> Ubiquitous Language
+	- Ubiquitous Language
 		- Understand the language to understand the business 
 		- Keep of business in sync with code (working on exposing behvaiour of domain, how domain works)-it's all about behavior much more than data.
 
