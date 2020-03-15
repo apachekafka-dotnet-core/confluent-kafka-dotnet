@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  helloworldproducer:
+    image: helloworldproducer:dev
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "HelloWorldProducer"
+    environment:
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    volumes:
+      - /Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/doc/05.Simple-Producer-and-Consumer/Lab.01-Helloworld-Run-In-Docker/HelloWorldProducer:/app
+      - /Users/ajachoud/vsdbg/vs2017u5:/remote_debugger:rw
+      - /Users/ajachoud/.nuget/packages/:/root/.nuget/packages:ro
+      - /usr/local/share/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"bin/Debug/netcoreapp3.0/HelloWorldProducer.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

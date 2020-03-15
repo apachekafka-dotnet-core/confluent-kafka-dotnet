@@ -1,0 +1,5 @@
+/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/doc/05.Simple-Producer-and-Consumer/Lab.01-Helloworld-Run-In-Docker/HelloWorldProducer/bin/Debug/HelloWorldProducer
+/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/doc/05.Simple-Producer-and-Consumer/Lab.01-Helloworld-Run-In-Docker/HelloWorldProducer/bin/Debug/HelloWorldProducer.dll
+/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/doc/05.Simple-Producer-and-Consumer/Lab.01-Helloworld-Run-In-Docker/HelloWorldProducer/bin/Debug/HelloWorldProducer.pdb
+/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/doc/05.Simple-Producer-and-Consumer/Lab.01-Helloworld-Run-In-Docker/HelloWorldProducer/obj/Debug/docker-compose.dcprojAssemblyReference.cache
+/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/doc/05.Simple-Producer-and-Consumer/Lab.01-Helloworld-Run-In-Docker/HelloWorldProducer/obj/Debug/docker-compose.dcproj.CopyComplete
