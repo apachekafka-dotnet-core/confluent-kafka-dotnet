@@ -2,7 +2,7 @@ DDD Architecture
 ----------------------------
 
 
-###Domain Driven Design
+###	Domain Driven Design
 - Tackling complexity in heart of software (business problem)
 - Dicovering the domain architecture more than organizing the business logic
 - Domain model remains a valied pattern to organize the business logic but other pattern can be used as well
@@ -20,7 +20,7 @@ Without DDD
 
 
 
-###Ubiquitous Language
+###	Ubiquitous Language
 Primary goal of avoiding misunderstanding and making the languge of the business as done in the organization in day to day all form of communication.(user stories, Request for changes (RFC)
 
 ### Bounded Context
@@ -167,16 +167,15 @@ DDD Layers
 		- can be handle multiple places 
 
 
-> Behavior
-
-	. The way in which one acts or connducts onseself, especially towards others
-
+#### Behavior
+>	The way in which one acts or connducts onseself, especially towards others
+	
 	- Methods that express business processes involving the objects
 	- Methods that invoke business actions to perform on the objects
 	- Methods that validate the state of the objects
 
 
-####CQRS -(Command and Query Responsibility Segaragation)
+####	CQRS -(Command and Query Responsibility Segaragation)
 
 	- Distinct optimization
 	- Scalability potential
@@ -213,7 +212,7 @@ Event(end-with-the-past) - Notify something has happend, tracking events we neve
 
 It's about ensuring that all channges made to the application state during the entire lifeetime of application are stored as a sequence of events. Serialized events become data source of the application, keeping the track of changes in the system.
 
-####The two options
+####	The two options
 - Option#1
 	+ Store current state
 	+ Use events to log relevant facts
@@ -221,14 +220,14 @@ It's about ensuring that all channges made to the application state during the e
 	+ Store events
 	+ Build relevant snapshots of facts from stream of events
 
-###How CQRS can help
+###	How CQRS can help
                     
 Command  | Queries
 ------------- | -------------
 Event  | Orders
 Stream  | Table 
 
-###Event store types of subscription
+###	Event store types of subscription
 
 - Volatile -> Call back a function whenever an event is written to a given stream until the subscription is stopped
 
@@ -237,7 +236,7 @@ Stream  | Table
 - Persistence -> Multiple consumers are guaranteed to receive at least once notification of events written possibly more.
 
 
-#####Key facts
+#####	Key facts
 
 - An event is something that has happened in the past
 - Events are expression of the ubiquitous language
