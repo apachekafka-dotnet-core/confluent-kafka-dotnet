@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  helloworldproducer:
+    image: ${DOCKER_REGISTRY-}helloworldproducer
+    build:
+      context: .
+      dockerfile: ./Dockerfile
