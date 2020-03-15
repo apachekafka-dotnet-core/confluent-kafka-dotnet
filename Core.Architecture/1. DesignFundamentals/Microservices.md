@@ -1,9 +1,10 @@
 Microservices
-------------
+=============
 
-2. Scoping microservice using bounded context
+Scoping microservice using bounded context
 =============================================
->  Domain driven design (a design that models real world domains)
+
+###  Domain driven design (a design that models real world domains)
 	- Domain consists of multiple bounded context (describe functions assocaited with-in domain), each bounded ccontext represents a domain function - a specific responsibility enforced by an explicit boundry
 
 	- encourge to loose coupling and high cohesion with-in boundry
@@ -36,8 +37,10 @@ Microservices
 	Unbounded approch 
 		- overlaping language in the boundry
 
-3. How to architect Asynchronous Microservics
-============================================
+
+How to architect Asynchronous Microservics
+==============================================
+
 > Event Based (Client <-.-> Message Broker <-.-> Service)
 	. Competing workers pattern
 	. Fanout pattern
@@ -65,11 +68,11 @@ Microservices
 	- 	
 
 
-4. Architectural Patterns for Microservices
+Architectural Patterns for Microservices
 ==========================================
 
-Microservices principles
-========================
+###	Microservices principles
+
 > Independent Deployment
 > Technology Agonstic
 > Loosely Coupled
@@ -96,9 +99,10 @@ Architectrual Sytle
 >Proxy Pattern (a placeholder of another object, used to control access to other object, other object could be external api, doesn't contain business logic instead provide wrapper around Transformation, Validation, Security or Simplification)
 >Stateless service pattern (not keeping state within service/server end, client maintain state, client send as request if required to process, benefits scalability, performance and availibility)
 
-5. How to compose microservics?
+How to compose microservics?
+============================
 
-Composition Patterns
+###	Composition Patterns
 
 	> Broker - Message brokers 
 	> Aggregate Pattern-A service communicate with other servicee and aggregate response and return to client 
@@ -106,7 +110,7 @@ Composition Patterns
 	> Proxy Pattern (API Gateway)
 	> Branch Pattern (branching and grouping services and returing response), could be one half is asynchronous and another is chained
 
-6. How to achieve data consistency(ACID) across microservices.
+###	How to achieve data consistency(ACID) across microservices.
 	> Two phase commit pattern (ACID is mandatory,CAP Theorem: Choosing consistency)
 		- Pattern for distributed architecture
 			- Transaction manager manages transaction
@@ -150,7 +154,7 @@ Composition Patterns
 			> Data Replication
 			> Event based
 
-07. Centralize access to microservices using an API Gateway
+### Centralize access to microservices using an API Gateway
  	Why and how we need centralize access?
  	> API Gateway - why ?
  		- Since microservice is distributed architeture wheere it comes with lots of feature and benefits, there are some complexivty comes inheritnly that we can resolve with some pattern and practices.. some complexitity like
@@ -176,7 +180,7 @@ Composition Patterns
  		- 
  	Open source - api gateway -> Konghq.com
 
-08. Split monolitihic database across microservices
+### Split monolitihic database across microservices
 	> Monolithic database
 		- Provide ability to share daya easily
 	> Why we should avoid
@@ -258,7 +262,7 @@ Composition Patterns
 				- Static data 
 					- move to shared libraries
 
-09. Resilency
+### Resilency
 	- Need for resiliency
 		- Distributed Architecture
 		- Fault tolerance 
@@ -329,7 +333,7 @@ Composition Patterns
 			- Use caches
 
 
-10. Microservice Comptaible
+### Microservice Comptaible
 	
 	USPs
 	- Independently changeable
@@ -386,7 +390,7 @@ Composition Patterns
 	- Unit testing layers (adapters) -> Integration Testing -> Contract testing -> Component testing - > Automated End to end testing
 	-	
 
-11. Define and document microservice contract
+### Define and document microservice contract
 	> Consumer driven contract, taken consumer application as requirement based on types of request to fulfill the use case., Documented as computer driven language so that unit test and validate contract between both parties.
 	
 	> Resource based microservice, restful style where every endpoint considered as managing resource using http verb.
@@ -402,7 +406,7 @@ Composition Patterns
 
 
 
-12. Implement micro services centralized logging
+### Implement micro services centralized logging
 
 	> Distributed architecture but centralized logging
 	. Consistent format (json/xml)
@@ -435,7 +439,7 @@ Composition Patterns
 			> HTTPS logging connections
 			> In-line with data retention policies
 
-13. Reporting from distributed microservice data
+### Reporting from distributed microservice data
 	Solution options for central reporting
 	> Reporting service - calls other services and pull required data and store into local db for further reporting or process
 	
@@ -452,7 +456,7 @@ Composition Patterns
  	> ETL and Data-warehouses
  	Orders+Customer => ETL Process (Extract => Transform => Load into datawarehouse) => Reporting service => central database
 
-14. Cloud based APIs
+### Cloud based APIs
 	> High cohesion, autonomous, business domain, resilience, obserable and automation
 
 	What are we designing
@@ -492,7 +496,7 @@ Composition Patterns
 	> Netowrking
 
 
-16. Managing microservices configuration
+### Managing microservices configuration
 	> Parameters to affect behavior
 	> Endpoint information
 	> Connection string
@@ -523,7 +527,7 @@ Composition Patterns
 		> Containers/Orchestration engines
 
 
-17. Manage microservices registration and discovery
+### Manage microservices registration and discovery
 	> Client side discovery
 		.  Calling client application responsible
 			> Discovery: Finding service instance location
@@ -561,7 +565,7 @@ Composition Patterns
 			. etc.		
 
 
-18. Monitoring Microservices
+###	Monitoring Microservices
 	> Why the need to monitoring
 		. Microservices complexity
 		. High availability is a requirement
@@ -626,16 +630,15 @@ Composition Patterns
 		. New Relic
 		. etc.
 
-------
 
 Data Management Patterns for Microservices
 ==========================================
+
 > Database Per Service
 In this pattern, each microservice manages its own data. What this implies is that no other microservice can access that data directly. Communication or exchange of data can only happen using a set of well-defined APIs. The success of this pattern hinges on effectively defining the bounded contexts in your application. For a new application or system, it is easier to do so. But for large and existing monolithic systems, it is troublesome.
 
 >Shared Database
 Shared database could be a viable option if the challenges surrounding Database Per Service become too tough to handle for your team.
-
 
 >Saga Pattern
 A Saga is basically a sequence of local transactions. For every transaction performed within a Saga, the service performing the transaction publishes an event. The subsequent transaction is triggered based on the output of the previous transaction. And if one of the transactions in this chain fails, the Saga executes a series of compensating transactions to undo the impact of all the previous transactions.
@@ -652,6 +655,7 @@ In event sourcing, you store the state of the entity or the aggregate as a seque
 
 
 What is preferred way of communication between microservices?
+
 > Synchronous - Request/Response based
 > Asynchronous - Event Based
 
