@@ -2,10 +2,10 @@ Modern Software Architecture
 ----------------------------
 
 
-Domain Driven Design
-> Tackling complexity in heart of software (business problem)
-> Dicovering the domain architecture more than organizing the business logic
-> Domain model remains a valied pattern to organize the business logic but other pattern can be used as well
+###Domain Driven Design
+- Tackling complexity in heart of software (business problem)
+- Dicovering the domain architecture more than organizing the business logic
+- Domain model remains a valied pattern to organize the business logic but other pattern can be used as well
 	. Object Oriendted Model
 	. Functional Model
 	. CQRS Model
@@ -53,7 +53,7 @@ Downstream context dependes on upstreeeam context, no negotiation possible
 
 DDD Layered Architeture
 ========================
-Business Layer Pattern
+####Business Layer Pattern
 	- Transcation Script Pattern
 		- Actions - Each procedure handles a single task
 		- Logical Transcation - end-to -end 
@@ -72,7 +72,7 @@ Business Layer Pattern
 		- Anemic model - plain data containers, behavior moved into service class.
 
 
---- Domain ---
+#### Domain
 	> Object Model 
 		> Context mapping is paramount
 		> Modeling the domain through objeects is just one of the possible options
@@ -83,8 +83,9 @@ Business Layer Pattern
 	> Ubiquitous Language
 		> Understand the language to understand the business 
 		> Keep of business in sync with code (working on exposing behvaiour of domain, how domain works)-it's all about behavior much more than data.
--- Domain Layer ---
-	> Domain Model (Great for command, Requires fixes for persistence, Expose behavior to presentation)
+
+#### Domain Layer
+	- Domain Model (Great for command, Requires fixes for persistence, Expose behavior to presentation)
 		Module(s) - 
 		. Entities
 			. Need an identity
@@ -186,7 +187,7 @@ CQRS -(Command and Query Responsibility Segaragation)
  	- Simplified design
  	- Hastle free enhancement
 
-> Command
+##### Command
  - Alter state
  - Deosn't return data
  - Benefits
@@ -194,7 +195,7 @@ CQRS -(Command and Query Responsibility Segaragation)
  - Table Module
  - Transaction Script Model
 
-> Query
+##### Query
 	- Returns data
 	- Doesn't alter state
 	- O/RM Choice (can be readonly wrapper)
