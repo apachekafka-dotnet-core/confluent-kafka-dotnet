@@ -255,21 +255,23 @@ Stream  | Table
 	+ Replay can be used to form and project any kind of state from abstracted lower level eventsource
 
 
-> Regular CQRS = [Post-Redirect-Get web pattern]
-> Premium CQRS = Separating by two separate commands (command and query)-Replicate db - and return query response from 
+###CQRS
++	Regular CQRS = [Post-Redirect-Get web pattern]
++	Premium CQRS = Separating by two separate commands (command and query)-Replicate db - and return query response from 
 replicated db
 
->> Command & Query Storage Synchronization
+#### Command & Query Storage Synchronization
 
->>>Synchronization (Automatically up-to-date, Every command triggers sync updates)
->>> Asynchronous (Eventually up-to-date, Every command triggers async updates) 
->>> Schedule (Controlled staleness, A job runs periodically and updates the read storage)
->>> On-Demand (Controlled up-to-date, Updates triggerd by requests (if old enough))
++	Synchronization (Automatically up-to-date, Every command triggers sync updates)
++	Asynchronous (Eventually up-to-date, Every command triggers async updates) 
++	Schedule (Controlled staleness, A job runs periodically and updates the read storage)
++	On-Demand (Controlled up-to-date, Updates triggerd by requests (if old enough))
 
->Delux CQRS = Message Bus
+>Delux CQRS
++	Message Bus
 
 
-####Pillars of Modern Software
+###Pillars
 
 ##### DDD Analysis
 + Ubiquitous Language
