@@ -16,20 +16,19 @@ Without DDD
 > Build a (relational) data model
 > Identify relevent tasks and data tables
 > Build a user interface
-> Closee to what users wanted 
+> Close to what users wanted 
 
 
 
-###Ubiquitous Language --
+###Ubiquitous Language
 Primary goal of avoiding misunderstanding and making the languge of the business as done in the organization in day to day all form of communication.(user stories, Request for changes (RFC)
 
-### Bounded Context ---
---Any elements of the ubiquitous language
---If language is same, context is same.
---Each context has its own architecture and implementation
-
--- Remove duplication
--- Integrate component with-in system
+### Bounded Context
+-	Any elements of the ubiquitous language
+-	If language is same, context is same.
+-	Each context has its own architecture and implementation
+-	Remove duplication
+-	Integrate component with-in system
 
 
 ###Context Mapping --
@@ -39,14 +38,13 @@ Direction of relationship - Upstream (U)and downstream (D) - Upstream influnce o
 
 ####Conformist####
 Downstream context dependes on upstreeeam context, no negotiation possible
-	-> Customer/Supplier - Customer context dependends on supplier context, chances to raise concerns and hame them addressed in some way (there is room to negotiate)
-	-> Partner - Mutual dependency between the two context
-	-> Shared Kernel - Shared model that can;t be changed without consulting teams in charge of contexts that depends on it.
-	-> Anti-corruption layer - Additional layer giving the downstream context a fixed interface no matter what happens in the upstream context.
+-	Customer/Supplier - Customer context dependends on supplier context, chances to raise concerns and hame them addressed in some way (there is room to negotiate)
+-	Partner - Mutual dependency between the two context
+-	Shared Kernel - Shared model that can;t be changed without consulting teams in charge of contexts that depends on it.
+-	Anti-corruption layer - Additional layer giving the downstream context a fixed interface no matter what happens in the upstream context.
 
--- Event Storming (identifyng obserbable event and domain in business)
-
-	-> Find what causes the event
+- Event Storming (identifyng obserbable event and domain in business)
+	- Find what causes the event
 		- User action ?
 		- asynchornous event ?
 		- Another event ?
@@ -182,12 +180,13 @@ DDD Layered Architeture
 
 ####CQRS -(Command and Query Responsibility Segaragation)
 
- 	- Distinct optimization
- 	- Scalability potential
- 	- Simplified design
- 	- Hastle free enhancement
+	- Distinct optimization
+	- Scalability potential
+	- Simplified design
+	- Hastle free enhancement
 
 ##### Command
+
 	- Alter state
 	- Deosn't return data
 	- Benefits
@@ -196,6 +195,7 @@ DDD Layered Architeture
 	- Transaction Script Model
 
 ##### Query
+
 	- Returns data
 	- Doesn't alter state
 	- O/RM Choice (can be readonly wrapper)
