@@ -182,16 +182,18 @@ DDD Layers
 	- Simplified design
 	- Hastle free enhancement
 
-##### Command
+##### Command | Tell the application to do the something - Actions upon the application
 
-	- Alter state
+	- Serializable method calls (Command request model should not be used as DTO model, 
+			DTO model is just data contract, Backward compatibility)
+	- Alter state, trigger reaction, push model
 	- Deosn't return data
 	- Benefits
 	- DOmain Model
 	- Table Module
 	- Transaction Script Model
 
-##### Query
+##### Query | Ask the application about something
 
 	- Returns data
 	- Doesn't alter state
@@ -199,6 +201,9 @@ DDD Layers
 	- LINQ
 	- Database in use
 
+##### Events | Inform other application 
+	- Result of reaction
+	- Pull model
 
 
 ###Differene between Event and Command?

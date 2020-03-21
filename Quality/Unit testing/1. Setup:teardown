@@ -6,3 +6,30 @@
 6. Mutil-threaded unit testing
 7. Refactoring unit tests
 8. Integration Testing
+
+### Testing on Multi frameworks
+	Open project file in editor and add new framework against you want to test your test cases
+	<TargetFrameworks>netcoreapp2.2;net472</TargetFrameworks>
+
+	Test Exploror = use column or filter to see framework against each test cases
+
+### Test case common initialization/Shared Context between Tests
+
+### Exposing internal method  in separate test project
+	
+	> Step1: create AssemblyAttribute.cs in your source project
+	> Step2: [assembly: InternalVisibileTo("test-project-name-space")]
+
+### Test Adapters in visual studio
+
+	*.TestAdapter.dll 
+	
+	From: Microsoft.TestPlatform.Object.Model
+
+	ITestDiscoverer (Microsoft.VisualStudio.TestPlatform.Object.Model.dll)
+	ITestExecutor (Microsoft.VisualStudio.TestPlatform.Object.Model.dll)
+
+### Options - Real time test discovery
+	-> Options-> Test -> General -> Checkbox (Real time test discovery )
+
+	

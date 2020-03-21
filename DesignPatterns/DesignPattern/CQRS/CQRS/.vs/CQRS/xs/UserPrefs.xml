@@ -1,0 +1,61 @@
+﻿<Properties StartupConfiguration="{0C40729D-292E-46E2-8CF6-382377E91A0A}|Default">
+  <MonoDevelop.Ide.ItemProperties.Ex2.Q-Query FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Ex3.DI-MessageDispatcher PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Command-Registry/CQRS/Command/CreateUserCommandHandler.cs">
+    <Files>
+      <File FileName="Command-Registry/CQRS/Command/CreateUserCommandHandler.cs" Line="15" Column="1" />
+      <File FileName="Command-Registry/CQRS/Decorators/AuditLogDecorator.cs" Line="22" Column="1" />
+      <File FileName="Command-Registry/CQRS/Decorators/CommandRetryDecorator.cs" Line="30" Column="1" />
+      <File FileName="Command-Registry/CQRS/Command/HandlerRegistry.cs" Line="43" Column="1" />
+      <File FileName="Command-Registry/Program.cs" Line="22" Column="1" />
+      <File FileName="Command-Registry/Startup.cs" Line="64" Column="49" />
+      <File FileName="Command-Registry/Controllers/CQRSController.cs" Line="41" Column="1" />
+      <File FileName="Command-Registry/CQRS/Base/MessageDispatcher.cs" Line="24" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CQRS" expanded="True">
+            <Node name="Ex5.CommandRegistry" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="CQRS" expanded="True">
+                <Node name="Base" expanded="True" />
+                <Node name="Command" expanded="True">
+                  <Node name="CreateUserCommandHandler.cs" selected="True" />
+                </Node>
+                <Node name="Decorators" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Ex5.CommandRegistry PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Ex1.C-Command FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" relfile="DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" line="17" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" relfile="DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" line="24" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/DI-MessageDispatcher/Controllers/CQRSController.cs" relfile="DI-MessageDispatcher/Controllers/CQRSController.cs" line="44" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" relfile="DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" line="20" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" relfile="DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" line="22" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" relfile="DI-MessageDispatcher/CQRS/Base/MessageDispatcher.cs" line="23" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/CommandRetry-UsingDecorator/CQRS/Decorators/CommandRetryDecorator.cs" relfile="CommandRetry-UsingDecorator/CQRS/Decorators/CommandRetryDecorator.cs" line="26" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/CommandRetry-UsingDecorator/CQRS/Base/MessageDispatcher.cs" relfile="CommandRetry-UsingDecorator/CQRS/Base/MessageDispatcher.cs" line="33" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/CommandRetry-UsingDecorator/CQRS/Decorators/CommandRetryDecorator.cs" relfile="CommandRetry-UsingDecorator/CQRS/Decorators/CommandRetryDecorator.cs" line="38" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/CommandRetry-UsingDecorator/CQRS/Decorators/CommandRetryDecorator.cs" relfile="CommandRetry-UsingDecorator/CQRS/Decorators/CommandRetryDecorator.cs" line="30" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/CommandRetry-UsingDecorator/CQRS/Command/CreateUserCommandHandler.cs" relfile="CommandRetry-UsingDecorator/CQRS/Command/CreateUserCommandHandler.cs" line="11" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/CommandRetry-UsingDecorator/Program.cs" relfile="CommandRetry-UsingDecorator/Program.cs" line="22" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/Command-Registry/CQRS/Command/CreateUserCommandHandler.cs" relfile="Command-Registry/CQRS/Command/CreateUserCommandHandler.cs" line="15" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/Command-Registry/CQRS/Command/HandlerRegistry.cs" relfile="Command-Registry/CQRS/Command/HandlerRegistry.cs" line="50" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/Command-Registry/CQRS/Command/HandlerRegistry.cs" relfile="Command-Registry/CQRS/Command/HandlerRegistry.cs" line="57" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/Command-Registry/CQRS/Command/HandlerRegistry.cs" relfile="Command-Registry/CQRS/Command/HandlerRegistry.cs" line="43" column="1" />
+      <Breakpoint file="/Users/ajachoud/Ajay/Learning/Kafka/confluent-kafka-dotnet/DesignPatterns/DesignPattern/CQRS/CQRS/Command-Registry/CQRS/Decorators/AuditLogDecorator.cs" relfile="Command-Registry/CQRS/Decorators/AuditLogDecorator.cs" line="22" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Ex4.RetryDecorator PreferredExecutionTarget="/Applications/Safari.app" />
+</Properties>

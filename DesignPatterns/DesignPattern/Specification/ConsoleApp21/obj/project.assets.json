@@ -749,11 +749,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Specification\\ConsoleApp21\\Ex3-Specification.csproj",
+      "projectUniqueName": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\DesignPatterns\\DesignPattern\\Specification\\ConsoleApp21\\Ex3-Specification.csproj",
       "projectName": "Ex3-Specification",
-      "projectPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Specification\\ConsoleApp21\\Ex3-Specification.csproj",
+      "projectPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\DesignPatterns\\DesignPattern\\Specification\\ConsoleApp21\\Ex3-Specification.csproj",
       "packagesPath": "C:\\Users\\ajchou\\.nuget\\packages\\",
-      "outputPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Specification\\ConsoleApp21\\obj\\",
+      "outputPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\DesignPatterns\\DesignPattern\\Specification\\ConsoleApp21\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -771,8 +771,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Specification\\Model\\Model.csproj": {
-              "projectPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\Core.Architecture\\2. Design Pattern (GOF)\\Source\\DesignPattern\\Specification\\Model\\Model.csproj"
+            "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\DesignPatterns\\DesignPattern\\Specification\\Model\\Model.csproj": {
+              "projectPath": "Y:\\Ajay\\Learning\\Kafka\\confluent-kafka-dotnet\\DesignPatterns\\DesignPattern\\Specification\\Model\\Model.csproj"
             }
           }
         }
