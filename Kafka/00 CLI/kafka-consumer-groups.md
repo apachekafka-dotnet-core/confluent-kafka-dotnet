@@ -1,24 +1,24 @@
-#kafka-consumer-groups
+#	kafka-consumer-groups
 
-##List all available consumer groups are active
+##	List all available consumer groups are active
 
 ```sh
 ./kafka-consumer-groups --list --bootstrap-server 192.168.0.3:9092
 ```
 
-##Lab: Verify if Kafka consumer consumed messages
+##	Lab: Verify if Kafka consumer consumed messages
  
 ```sh
 ./kafka-consumer-groups --bootstrap-server 192.168.0.3:9092 --group g1 –describe
 ```
 
-##Lab: Reset offset for consumer offset to replay already consumed messages
+##	Lab: Reset offset for consumer offset to replay already consumed messages
 
 ```sh
 ./kafka-consumer-groups --bootstrap-server 192.168.0.3:9092 --group g1 --topic test2 --reset-offsets --to-earliest --execute
 ```
 
-##Lab: Reset consumer group offset 
+##	Lab: Reset consumer group offset 
 
 Note: Assignments can only be reset if the consumer group is inactive
 
