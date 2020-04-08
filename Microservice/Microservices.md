@@ -1,6 +1,369 @@
 Microservices
 =============
 
+Microservices(distrbuted piece of Software) Design Principles
+=============================================
+### High Cohesion - Single focuns, 
+	- Identify single business function(in has own clear own input and output)
+	- or Identity in the form business domain
+	- Split into finer grained services
+	- Avoid "Is kind of the same"
+	- Changes in one business function should not change in other business function (one service one reason to change)
+	- Don't get lazy to create many services
+
+
+### Autonomous - independently deploybale and changable
+
+	- Approch : Lossely coupled, dependnt on each other minimal way (not physical connecteed, communication by network (Synchornous/Asynchronous-Publish and Subscribe event))
+	- Technology agnostic API
+	- Avoid client liraries
+	- Contracts between services
+	- Fixed and agreed interfaces, shared models, and clear input and output
+	- Avoid chatty exchanges between services
+	- Avoid sharing between servicees
+		- database
+		- shared libraries
+
+	- Approach : Autonomous
+		- Microservice ownership by team, responsiblity of team to agreeing contracts between teams and long-term maintenance
+		- Collaborative development
+			- Communicate contract requirements
+			- Communicate data requirements
+		- Concurrent development
+		- Versiooning
+			- Avoid bbreaking changes
+			- Backward compatibility
+			- Integration tests
+			- Have a versioning strategy
+				- Concurrent versions (old and new)
+				- Coexisting endpoints (/v2/customer, v1/customer)
+				- Semantic versioning (mahor.minor.path)
+
+
+### Business Domain Centric
+	- One microservice contains all the functionality that one domain holds
+	- Review benefits of splitting further
+	- Must do one thing and do it well
+	- Agreementee a common langugae
+	- Fix incorrect boundaries
+		- Meerge or split 
+	- Explict interface for outside world
+	- Splitting using technical boundaries
+		- Service to access archive data
+		- For performance tuning
+
+
+### Resilience - Embrace failure
+
+	- Design for known failures
+	- Failure of downstream systems
+		- Other services internal or external 
+	- Degrade functionality on failure detection
+	- Default functionality on faiulure detection
+	- Design system t fail fast
+	- Use timeouts
+		- Use for connected systems
+		- Timeout our requiests after a threshold
+		- Service to service
+		- Service to other system
+		- Standard timeout length
+		- Adjust length on a case by case basis
+	- Network outages and latency
+	- Monitor timeouts
+	- Log timeouts
+
+### Obserable - Centrialized and Monitoring
+	- Centrlized monitoring
+	- Monitor the host
+		- CPU, memory, disk usage
+	- Expose metrics within the service
+		- Reponse times
+		- Timeouts
+		- Exceeptions and errors
+	- Business data related metrics
+		- Number of orders
+		- Average time from basket to checkout
+	- Collect and aggregate monitoring data
+		- Monitoring tools that provide aggregation
+		- Monitoring tools that provide drill down options
+	- Monitoring tool that ccan help visualise trends
+	- Mpnitoring tool that can compare data across servers
+	- Monitoring tool that can trigger alerts
+	
+	#### Centralized Logging 
+	(Why happend and what happened, seeing the the whole story what has happened)
+		- When to log
+			-	Startup or shutdown
+			-	Code path milestones
+					- Requests, responses and decisions
+			-	Timeouts, exceptions and error
+		- Structured Logging
+			- Level
+				- Information, Error, Debug, Stats
+			- Datee and time
+			- Correlation ID
+			- Hostname
+			- Service name and service instance
+			- Message/Key(index key - help to query)
+		- Tracebale distributed transactions
+			- Correlation ID
+			- Passeed service to service
+
+
+### Automation - tools to feedback and testing
+	#### CI
+		-	Work with source control ssystem
+		- 	Automatic after check-in
+		-	Unit tests and integration test required
+		-	Ensure quality of check-in
+			- Code compilees
+			- Test pass
+			- Canges integrate
+			- Quick feedback
+		- Urgency to fix integration issue
+		- Creation of build
+		- Build ready for deployment and ready for production
+
+	#### CD
+		-	Automate software deployment
+			-	Configure once
+			-	Works with CI tools
+			-	Deployable after checkin
+			-	Reliably relased at anytime
+		-	Benefits
+			- Quick to market
+			- Reliable deployment
+			- Better customer experience
+
+### Technology for Microservices
+
+	### Virtualization
+	-	A virtual machine as a host (platform as service (PAAS))
+	-	
+	### Containers
+	-	Type of virtualization
+	-	Isolate service from each other
+	-	Single service per container
+	-	Different to a virtual machine
+		- Use less resource than VM
+		- Faster than VM
+		- Quicker to create new instances
+		Ex: docker, Rocker, glassware
+	
+	### Self-hosting
+		- Use of physical machines
+		- Single service on a server or multiple services on a server
+
+		Challenges
+		- Scaling is not as immediate
+		- Need for tech
+	### Registration and Discovery
+		- Service registry database
+		- Register on startup
+		- Deregister service on failure
+	 	- Cloud platforms make it easy
+	 	- Local platform registration options
+	 		- Self registration
+	 		- Third party registration
+	 	- Local platform discovery options
+	 		- Client side discovery
+	 		- Server side discovery
+
+#### Monitoring Tech
+> Centralised tools
+Nagios
+PRTG
+Load balancers
+New Relic
+
+> Desired features
+Metrics across servers
+Automatic or minimal configuration
+Client lirarries to send metrics
+Test transactions support
+Alert
+
+> Network monitoring
+> Standarise Monitoring
+	- Central tool
+	- Prevonfigured virtual machines or containers
+> Real time monitoring
+
+
+#### Logging Tech
+> Portal for centralised logging data
+	-	Elastic log
+	-	Log Stash
+	-	Splunk
+	-	Kibana
+	-	Graphite
+
+> Client logging libraries
+	- 	Structured logging
+	- 	Logging across servers
+	-	Automatic or minimal configuration
+	- 	Correlation\Context ID for transaction
+> Standarise Logging
+	-	Central tool
+	-	Template for client library
+
+#### Performance
+	-	Scaling number of instances of service, adding resource to existing service
+
+	-	Automated or on-demand
+	-	PAAS auto scaling options
+	-	Virtualization and containers
+	- 	Physical host servers
+	-	Load balancers
+		-	API Gateway
+	-	When to scale up
+		- Performance issues
+		- Monitoring data
+		- Monitoring capacity/planning
+	-	Caching of data
+		- 	API Gateway\Proxy Level
+		-	Decreases network calls
+		- 	Caching at client side
+		-	Caching at service level
+			-	Concern to address
+			-	Simple to setup and manage
+			-	Lekage/Obselete
+
+### API Gateway
+
+	- Help with performance
+		-	Load Balancing
+		-	Caching
+	- Help with
+		- Creating central entry point
+		- Exposing service to clients
+		- One interface to many services
+		- Dynamic Location of services
+		- Routing to specific instance of service
+		- Service registry database
+
+	-Security
+		-	API Gateway
+		-	Dedicated security service
+		-	Central security vs service level
+
+### Continuous Integration (CI)
+	-	Team City
+	-	Source control integration
+	-	Notification
+	- 	IDE Integration
+	-	Code change triggers build of specific service
+	-	Feedback just received on that service
+	-	Builds and tests run quicker
+	-	Separate code repository for service
+	- 	End product is in one place
+	-	CI builds to test database changes
+	- 	Avoid one CI builds for all services, each microservice each CI plan
+
+	-	Continous Deployment
+		- 	Central control pae=nel
+		-	Simple to add ddeployment target
+		-	Support for scripting
+		-	Support for build statuses
+		-	Integration with CI tool
+		-	Support for multiple enviornment
+		-	Support for PAAS
+
+
+### Brownfield Microservices: Approch
+
+#### 
+	- Existing System
+		-	Monolithic System
+		-	Organically grown
+		-	Seems to large to split
+	- Lacks microservices design principles
+	- Identify seams
+		- Separation that reflects domains
+		- Identify bounded contexts
+	- Start modularising the boundent context
+		- Move code incrementally
+		- Tidy up a section per release
+			- Take your time
+			- Existing functionality needs to remain intact 
+		- Run unit tests and integrationn
+		- Keep reviewing
+
+
+#### Migration
+	- Code is organised into bounded contexts
+	- Convert bounded contexts into microservices
+	How to prioritise what to split ?
+		- By risk
+		- By technology
+		- By dependencies
+	Incremental approach
+	Integrating with the monolithic
+		- Monitor both for impact
+		- Monitor operations that talk to microservices
+		- Reviewe and improve infrastructure
+		- incrementally the monolithic will be converted
+
+#### Data Migration
+
+	- Avoid shared databases
+	- Split databases using seams
+		- relate tables to code seams
+	- Suporting the existing application
+		- Data layer that connects to multiple database
+	- Tables that link across seams
+		- API calls that can fetch the data for a relationship
+	- Refactor database into multiple databases
+	- Data refrential integrity
+	- Static data tables
+	- Shared data
+
+#### Transactions
+	- Try again later (Eventually completed)
+	- Abort entire transaction (undo all transaction)
+	- Use a transcation manager
+		- Two phase commit
+		
+		--Disadvantages
+
+		- Delay in processing
+		- Potential bottleneck
+		- Complex to implement
+
+#### Reporting
+
+	- Microservices complicate reporting
+		- Data split across microservices
+		- No central database
+		- Joining data across databases
+		- Slower reporting
+		- COmplicat development of report
+	- Possible Solution
+		- Dediated reporting service
+		- Service calls for report
+		- Data dumps
+		- Consolidation environement (If not realtime)
+
+### Greenfield Microservices
+	- New Project
+	- Evolving requirement
+	- Businesss domain
+		- Boundries will evolve
+		- Getting domain experts involved
+		- Not fully understood
+	- Start with
+		- High level
+		- Evolving seams
+		- Develop areas into modules
+		- Boundaries start to become clears
+		- Modules become service
+		- Prioritise 
+			- by Minimal viable product
+			- by Customer needs and demand
+		- Review microservice principles at each stage
+		- Shareable code libraries promote to service
+
+
 Scoping microservice using bounded context
 =============================================
 

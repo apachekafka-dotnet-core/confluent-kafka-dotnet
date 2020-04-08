@@ -43,6 +43,109 @@ Downstream context dependes on upstreeeam context, no negotiation possible
 -	Shared Kernel - Shared model that can;t be changed without consulting teams in charge of contexts that depends on it.
 -	Anti-corruption layer - Additional layer giving the downstream context a fixed interface no matter what happens in the upstream context.
 - 	Event Storming (identifyng obserbable event and domain in business)
+	- Setup for Event Storming (collabrative scoping sessoion between technical/development team(ability to question and get the clarity on requirement, tecnical team comeup with scenario business people has not thought of the problem we are trying to solve) and business people(different part of the business (domain experts)))
+		- Physical output can used to scope microservices
+
+		- Takes sticky notes and Pens and plot on the wall or horizontal space (virtual wall : miro.com)
+
+		Step 1: Plotting Event (Events within the domain) - (that happens in existing system or to purposed system)
+			- Idenity first event where journey starts, use past tense in sticky notes always
+			- Avoid technical langugae, and use business people language(Domain language) to describe event
+			- The event happens in same time line, stack it vertically or put it to left to right timeline of events.
+			- Slowing and questions will leead to identify all existing domain event and events which will need into purposed solution - in the order
+		
+		Step 2: Plotting Definitions and Concerns
+
+			- Defing all confusing words, plotting concerns, risks, issues, new terminology - make everything consistent and everybody in session are aligned with understanding
+			
+			- Use different sticky notes on top of event - where the confusion is  - or put it on top of table vertically
+
+			- Concerns( different sticky notes) -for further tracking and tracing down or solutioning discssion -
+				- Group it 
+				- Prioritize it by voting
+				- If something needs to handle immediatly, can be address outside the session
+
+
+		Before start of the event storming session put the sticky legend cleary like
+		-	Domain Event (Orange)
+		
+		Step 3: Plotting Commands
+		Every step question previous steps and get it refined, implement learning
+
+		-	Commands are normally paired with events, they normally represnt actions, interactions and decision that leads to events paired with.
+
+		- Attach user attached with actions(Command) with separate sticky notes
+
+		- Event - specially carried out by stystem/software not by specific user
+
+		- 
+
+		Step 4: Plotting External System
+
+		Put the external system vertical on top of event where other system is consuming or their event getting consumed in proposed system, showing the direction using arrows.
+
+		- show command received
+		- show events emitted
+		- separate system
+		- third party or internal system
+
+
+		Step 5: Plotting time triggered Events
+
+		-	No user involved
+		-	Not a software based decision
+		-	Passing of time (example: if proces taking more than expected time)
+
+		Step 6: Plotting Policies
+
+		-	Sitting between command and event, which controls and software based command/set of commands to control behavior, reactive logic that may leed to another command event...like before happening this event set of command must to happens.
+
+		-	Connect policy with event
+		- 	Polices places inside the software
+
+		Step 7: Plotting Read models
+
+		-	Plot data requirement to carried next/actions or decision
+
+		- 	Emphasis data requirement on screen to do the action
+
+		Step 8: Plotting Aggregates
+
+		-	Bring command and event data/the data which requires state
+		- 	Hold many instances of data/data holder
+		- 	Root object holding pairing of command and event
+
+		-	for the aggregate name, think of nouns that command and event holds
+		- 	Ensure aggregate names are unqiue that represents owenership of the data
+
+		- 	Way of grouping commands and events
+
+		-	Emits events in response
+
+		-	Commands act upon the data
+
+		Step 9: Drawing Boundaries
+
+		-	Initial scope of microservice
+		-	Now remove the timeline from events where its plotted
+
+		-	Group the aggregate
+		-	Identify the bounded context
+		-	Remove duplice aggregate name
+		-	Group based on provider(route or external system), brint own dataset and technoloies and query language(natural grouping)
+
+		- Draw logical name for each group/boundry
+
+		- Use boundary for microservice scope
+
+		(how to scope microservices using bounded contexts)
+
+		Step 10: Consolidating and Decomposing
+
+		-	Scoping microserice usimg transaction boundries/consistency
+		-	Further decomposing based on availabiliy and uses to gain performance benefits
+		-	
+
 	- Find what causes the event
 		- User action ?
 		- asynchornous event ?

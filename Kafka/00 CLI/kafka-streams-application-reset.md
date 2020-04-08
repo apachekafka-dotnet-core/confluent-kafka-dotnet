@@ -1,0 +1,2 @@
+#kafka-streams-application-reset
+
